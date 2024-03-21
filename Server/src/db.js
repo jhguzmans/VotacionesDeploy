@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
   {
     logging: false,
     native: false,
-    force: false,
+    force: true,
   }
 );
 const basename = path.basename(__filename);

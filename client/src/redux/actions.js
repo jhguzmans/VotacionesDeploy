@@ -19,10 +19,11 @@ import {
   //   CLEAR_SORTS,
 } from "./action-types";
 import axios from "axios";
+const URL_BACK = "http://localhost:3001";
 
 export const crearPregunta = (pregunta) => {
   console.log("En la action que crearía la pregunta");
-  const URL = "http://localhost:3001/crearPregunta";
+  const URL = `${URL_BACK}/crearPregunta`;
   return async (dispatch) => {
     try {
       const { data } = await axios.post(URL, pregunta);
@@ -40,10 +41,9 @@ export const crearPregunta = (pregunta) => {
   };
 };
 export const getConjs = () => {
-  const URL = "http://localhost:3001/conjs";
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(URL);
+      const { data } = await axios.get(`${URL_BACK}/conjs`);
       if (!data.length) throw Error("No hay conjuntos");
       else {
         return dispatch({

@@ -67,8 +67,11 @@ const Login = () => {
     await dispatch(loginUser(credentials));
     if (user) {
       console.log("el user es: ", user);
+      localStorage.setItem("usuario", JSON.stringify(user.conjTorreApto));
+      localStorage.setItem("tipo", JSON.stringify(user.tipo));
+      localStorage.setItem("coef", JSON.stringify(user.coef));
+
       if (user.tipo == "propietario") {
-        localStorage.setItem("usuario", JSON.stringify(user.conjTorreApto));
         navigate("/home");
       } else {
         navigate("/homeAdmin");

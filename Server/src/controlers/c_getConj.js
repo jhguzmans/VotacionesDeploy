@@ -7,7 +7,7 @@ const c_getConj = async () => {
     attributes: [[Sequelize.fn("DISTINCT", Sequelize.col("conj")), "conj"]],
   });
   const conjs = dataDB.map((registro) => registro.conj);
-
+  //const conjs = ["amarilo", "verde", "azul"];
   if (conjs.length == 0)
     throw Error("No existe ningun apartamento para esa torre.");
   return conjs;

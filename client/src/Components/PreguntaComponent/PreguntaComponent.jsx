@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import styles from "./PreguntaComponent.module.css";
 const user = localStorage.getItem("usuario");
+const coef = localStorage.getItem("coef");
 
 const PreguntaComponent = () => {
   console.log("en pregunta component el user es: ", user);
@@ -50,6 +52,7 @@ const PreguntaComponent = () => {
           preguntaId: ultimaPregunta.preguntaId,
           opcionId: respuestaSeleccionada,
           user,
+          coef,
         };
         console.log("lo que se envía de respuesta es: ", respuesta);
         await axios.post("http://localhost:3001/enviarRespuesta", respuesta);
@@ -64,7 +67,7 @@ const PreguntaComponent = () => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {ultimaPregunta ? (
         <>
           <h2>Pregunta:</h2>

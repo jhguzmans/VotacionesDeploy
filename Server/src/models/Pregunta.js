@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
 
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define("Pregunta", {
@@ -15,5 +13,4 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
   });
-  //   Pregunta.hasMany(Respuesta, { foreignKey: "PreguntaId" });
 };

@@ -11,6 +11,7 @@ const postPregunta = require("../handlers/postPregunta");
 const getPregunta = require("../handlers/getPregunta");
 const postRespuesta = require("../handlers/postRespuesta");
 const getRespuestaByPregunta = require("../handlers/getRespuestaByPregunta");
+const respuestaById = require("../handlers/respuestaById");
 // const getActivities = require("../handlers/getActivities");
 // const deleteActivity = require("../handlers/deleteActivity");
 
@@ -28,5 +29,6 @@ router.post("/crearPregunta", postPregunta);
 router.get("/ultimaPregunta", getPregunta);
 router.post("/enviarRespuesta", postRespuesta);
 router.get("/yavoto", getRespuestaByPregunta);
+router.get("/respuestasById", respuestaById);
 // router.delete("/activity/:id", deleteActivity);
 module.exports = router;

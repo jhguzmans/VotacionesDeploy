@@ -1,0 +1,33 @@
+/* adminStyles.module.css */
+
+.container {
+  background-color: #2196f3; /* Azul */
+  color: #ffffff; /* Blanco */
+  padding: 40px; /* Mayor espacio interno */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sutil aumento en la sombra */
+  margin: 40px auto; /* Centrado en pantalla */
+  max-width: 800px; /* Ancho máximo para evitar que se extienda demasiado en pantallas grandes */
+}
+
+h2 {
+  color: #ffffff; /* Blanco */
+  font-size: 24px; /* Tamaño de fuente ligeramente mayor */
+  margin-bottom: 20px; /* Mayor espacio después del título */
+}
+
+button {
+  background-color: #ffffff; /* Blanco */
+  color: #2196f3; /* Azul */
+  border: none;
+  padding: 15px 30px; /* Mayor espacio dentro del botón */
+  cursor: pointer;
+  border-radius: 8px; /* Bordes más redondeados */
+  font-size: 18px; /* Tamaño de fuente ligeramente mayor */
+  margin-top: 20px; /* Mayor espacio antes del botón */
+}
+
+button:hover {
+  background-color: #1976d2; /* Azul más oscuro al pasar el mouse */
+  color: #ffffff; /* Blanco */
+}

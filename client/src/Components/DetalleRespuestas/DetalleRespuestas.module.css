@@ -1,0 +1,22 @@
+/* DetalleRespuestas.module.css */
+
+.container {
+  background-color: #f5f5f5; /* Fondo gris claro */
+  color: #333; /* Texto oscuro */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+h2 {
+  color: #2196f3; /* Azul principal */
+  margin-bottom: 20px;
+}
+
+.chartContainer {
+  margin-top: 20px;
+  max-width: 600px; /* Limita el ancho del contenedor del gráfico */
+  margin-left: auto;
+  margin-right: auto;
+}

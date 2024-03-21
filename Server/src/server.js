@@ -7,8 +7,13 @@ const server = express();
 
 server.use(morgan("dev"));
 server.use(express.json());
-server.use(cors());
-
+server.use(
+  cors({
+    origin: "*", // Permitir solicitudes solo desde este dominio
+    methods: "GET, POST, PUT, DELETE", // Opcional: Especificar los métodos HTTP permitidos
+    allowedHeaders: ["Content-Type", "Authorization"], // Opcional: Especificar los encabezados permitidos }));
+  })
+);
 server.use(router);
 
 module.exports = server;
