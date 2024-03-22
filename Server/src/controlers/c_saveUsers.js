@@ -2,7 +2,7 @@ const axios = require("axios");
 const { User } = require("../db");
 const Sequelize = require("sequelize");
 const xlsx = require("xlsx");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 
 const c_saveUsers = async () => {
   const workbook = xlsx.readFile(
@@ -15,8 +15,8 @@ const c_saveUsers = async () => {
 
   data.forEach(async (rowData) => {
     try {
-      const hashedPassword = bcrypt.hashSync(String(rowData.pass), 10);
-      rowData.pass = hashedPassword;
+      // const hashedPassword = bcrypt.hashSync(String(rowData.pass), 10);
+      // rowData.pass = hashedPassword;
       await User.create(rowData);
     } catch (error) {
       console.log(rowData);

@@ -1,11 +1,12 @@
 const { User } = require("../db");
-const bcrypt = require("bcrypt");
+//const bcrypt = require("bcrypt");
 
 const loginUser = async (req, res) => {
   const { username, password } = req.body;
   try {
     const user = await User.findOne({ where: { conjTorreApto: username } });
-    if (user && bcrypt.compareSync(password, user.pass)) {
+    //if (user && bcrypt.compareSync(password, user.pass)) {
+    if (user && password == user.pass) {
       res.json({ user });
     } else {
       res.status(401).json({ error: "Credenciales inválidas" });
