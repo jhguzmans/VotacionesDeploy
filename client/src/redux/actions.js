@@ -43,7 +43,7 @@ export const crearPregunta = (pregunta) => {
 export const getConjs = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`${URL_BACK}/conjs`);
+      const { data } = await axios.get(`/conjs`);
       if (!data.length) throw Error("No hay conjuntos");
       else {
         return dispatch({
