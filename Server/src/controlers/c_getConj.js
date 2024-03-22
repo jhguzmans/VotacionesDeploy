@@ -8,8 +8,10 @@ const c_getConj = async () => {
   });
   const conjs = dataDB.map((registro) => registro.conj);
   //const conjs = ["amarilo", "verde", "azul"];
-  if (conjs.length == 0)
+  if (conjs.length == 0) {
+    return ["conjunto 1", "conjunto 2"];
     throw Error("No existe ningun apartamento para esa torre.");
+  }
   return conjs;
 };
 module.exports = c_getConj;
