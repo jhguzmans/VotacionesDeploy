@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import Home from "./Views/Home/Home";
 import Admin from "./Views/Admin/Admin";
 import axios from "axios";
-axios.defaults.baseURL = "votacionesdeploy-production.up.railway.app";
+axios.defaults.baseURL = "https://votacionesdeploy-production.up.railway.app";
 function App() {
   const location = useLocation();
   const getAllLocalStorage = () => {

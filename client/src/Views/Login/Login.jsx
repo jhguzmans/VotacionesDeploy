@@ -62,9 +62,10 @@ const Login = () => {
       username = selectedConj + " " + selectedTorre + "-" + selectedApto;
     }
     const credentials = { username, password };
-    console.log(credentials);
+    //console.log(credentials);
     event.preventDefault();
     await dispatch(loginUser(credentials));
+
     if (user) {
       console.log("el user es: ", user);
       localStorage.setItem("usuario", JSON.stringify(user.conjTorreApto));
