@@ -19,7 +19,7 @@ import {
   //   CLEAR_SORTS,
 } from "./action-types";
 import axios from "axios";
-const URL_BACK = "http://localhost:3001";
+const URL_BACK = "";
 
 export const crearPregunta = (pregunta) => {
   console.log("En la action que crearía la pregunta");
@@ -57,7 +57,7 @@ export const getConjs = () => {
   };
 };
 export const getTorres = (conj) => {
-  const URL = "http://localhost:3001/torres/?conj=" + conj;
+  const URL = "/torres/?conj=" + conj;
   return async (dispatch) => {
     try {
       const { data } = await axios.get(URL);
@@ -74,7 +74,7 @@ export const getTorres = (conj) => {
   };
 };
 export const getAptos = (torre) => {
-  const URL = "http://localhost:3001/aptos/" + torre;
+  const URL = "/aptos/" + torre;
   return async (dispatch) => {
     try {
       const { data } = await axios.get(URL);
@@ -92,10 +92,7 @@ export const getAptos = (torre) => {
 };
 export const loginUser = (credentials) => async (dispatch) => {
   try {
-    const { data } = await axios.post(
-      "http://localhost:3001/login",
-      credentials
-    );
+    const { data } = await axios.post("/login", credentials);
     dispatch({
       type: LOGIN_USER,
       payload: data.user,
@@ -105,7 +102,7 @@ export const loginUser = (credentials) => async (dispatch) => {
   }
 };
 // export const getActivities = () => {
-//   const URL = "http://localhost:3001/activities";
+//   const URL = "/activities";
 //   return async (dispatch) => {
 //     try {
 //       const { data } = await axios.get(URL);
@@ -125,7 +122,7 @@ export const loginUser = (credentials) => async (dispatch) => {
 // export const deleteActivity = (id) => {
 //   return async (dispatch) => {
 //     try {
-//       const data = await axios.delete(`http://localhost:3001/activity/${id}`);
+//       const data = await axios.delete(`/activity/${id}`);
 //       console.log(data);
 //       dispatch(getActivities());
 //     } catch (error) {
@@ -136,7 +133,7 @@ export const loginUser = (credentials) => async (dispatch) => {
 
 // export const search_country = (name) => {
 //   return async (dispatch) => {
-//     const URL = "http://localhost:3001/countries";
+//     const URL = "/countries";
 //     try {
 //       const { data } = await axios.get(`${URL}/?name=${name}`);
 //       if (data.name) {

@@ -218,9 +218,7 @@ const DetalleRespuestas = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ultimaPreguntaResponse = await axios.get(
-          "http://localhost:3001/ultimaPregunta"
-        );
+        const ultimaPreguntaResponse = await axios.get("/ultimaPregunta");
 
         setOpcRespuesta(ultimaPreguntaResponse.data.OpcionRespuesta);
         console.log("las opciones de respuesta son: ", opcRespuesta);
@@ -228,7 +226,7 @@ const DetalleRespuestas = () => {
         const respuestasPromises =
           ultimaPreguntaResponse.data.OpcionRespuesta.map(async (opcion) => {
             const respuestaByIdResponse = await axios.get(
-              `http://localhost:3001/respuestasById/?opcionId=${opcion.opcionId}`
+              `/respuestasById/?opcionId=${opcion.opcionId}`
             );
             return {
               textoOpcion: opcion.texto,

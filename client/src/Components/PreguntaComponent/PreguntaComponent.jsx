@@ -13,9 +13,7 @@ const PreguntaComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const ultimaPreguntaResponse = await axios.get(
-          "http://localhost:3001/ultimaPregunta"
-        );
+        const ultimaPreguntaResponse = await axios.get("/ultimaPregunta");
         setUltimaPregunta(ultimaPreguntaResponse.data);
       } catch (error) {
         console.error("Error al obtener los datos:", error);
@@ -30,7 +28,7 @@ const PreguntaComponent = () => {
         const preguntaId = ultimaPregunta.preguntaId;
         console.log("en PreguntaComponent, preguntaId es: ", preguntaId);
         const yaVotoResponse = await axios.get(
-          `http://localhost:3001/yavoto?user=${user}&preguntaId=${preguntaId}`
+          `/yavoto?user=${user}&preguntaId=${preguntaId}`
         );
         console.log("la respuesta de YaVoto es; ", yaVotoResponse.data);
         setYaVoto(yaVotoResponse.data);
@@ -55,7 +53,7 @@ const PreguntaComponent = () => {
           coef,
         };
         console.log("lo que se envía de respuesta es: ", respuesta);
-        await axios.post("http://localhost:3001/enviarRespuesta", respuesta);
+        await axios.post("/enviarRespuesta", respuesta);
         setYaVoto(true);
         alert("Respuesta enviada con éxito");
       } catch (error) {
