@@ -3,11 +3,18 @@ const { Op } = require("sequelize");
 
 const c_postIngreso = async (username) => {
   try {
-    await User.update(
+    const updatedEntity = await User.update(
       { ingresa: true },
-      { where: { torreApto: { [Op.like]: `%${username}%` } } }
+      { where: { torreApto: { [Op.like]: `%${username}%` } }, returning: true }
     );
-    return "Entidad modificada correctamente";
+
+    const [numOfAffectedRows, [updatedUser]] = updatedEntity;
+
+    if (numOfAffectedRows > 0) {
+      return updatedUser;
+    } else {
+      throw new Error("No se encontró ninguna entidad para actualizar");
+    }
   } catch (error) {
     console.log(error);
     throw error;
