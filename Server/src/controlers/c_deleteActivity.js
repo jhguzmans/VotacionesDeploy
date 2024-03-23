@@ -3,6 +3,7 @@ const { Activity } = require("../db");
 
 const c_deleteActivity = async (id) => {
   try {
+    console.log("hola mundo");
     console.log("en el controler, el id de la actividad es:00 ", id);
     // Buscar la actividad por su id
     const activity = await Activity.findByPk(id);
