@@ -1,0 +1,7 @@
+/* Home.module.css */
+
+.container {
+  background-color: #ffffff; /* Fondo blanco */
+  padding: 20px; /* Espaciado interno */
+  min-height: 100vh; /* Altura mínima de la pantalla */
+}

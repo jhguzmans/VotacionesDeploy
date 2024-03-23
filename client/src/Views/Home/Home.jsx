@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../../Components/NavBar/NavBar";
 import PreguntaComponent from "../../Components/PreguntaComponent/PreguntaComponent";
+import styles from "./Home.module.css";
+
 const Home = () => {
   const onLogout = () => {
     localStorage.clear();
@@ -16,7 +18,7 @@ const Home = () => {
   }
   if (userName)
     return (
-      <div>
+      <div className={styles.container}>
         {userName && <NavBar onLogout={onLogout} />}
         <PreguntaComponent />
       </div>
