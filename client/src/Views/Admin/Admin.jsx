@@ -54,7 +54,7 @@ import styles from "./Admin.module.css";
 
 const Admin = () => {
   const [seccionActiva, setSeccionActiva] = useState("cuorum");
-  const [formularioHabilitado, setFormularioHabilitado] = useState(false);
+  const [formularioHabilitado, setFormularioHabilitado] = useState(true);
 
   const handleToggleFormulario = () => {
     setFormularioHabilitado(!formularioHabilitado);
@@ -71,9 +71,9 @@ const Admin = () => {
         <button onClick={() => setSeccionActiva("crearPregunta")}>
           Crear Pregunta
         </button>
-        <button onClick={handleToggleFormulario}>
+        {/* <button onClick={handleToggleFormulario}>
           {formularioHabilitado ? "Deshabilitar Formulario" : "Crear Pregunta"}
-        </button>
+        </button> */}
       </div>
       <div>
         {seccionActiva === "cuorum" && <Cuorum />}

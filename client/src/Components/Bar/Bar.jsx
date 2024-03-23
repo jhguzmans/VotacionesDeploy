@@ -1,6 +1,6 @@
 // NavBar.jsx
 import React from "react";
-import styles from "./NavBar.module.css";
+import styles from "./Bar.module.css";
 
 const Bar = ({ onLogout }) => {
   return (

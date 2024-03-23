@@ -6,8 +6,7 @@
 }
 .quorum {
   font-weight: bold; /* Letra en negrita */
-
-  font-size: 24px; /* Tamaño de letra grande */
+  font: size 36px; /* Tamaño de letra grande */
 }
 .form {
   display: flex;
