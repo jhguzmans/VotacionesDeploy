@@ -9,7 +9,7 @@ module.exports = (sequelize) => {
     },
     ingresa: {
       type: DataTypes.BOOLEAN,
-      allowNull: true,
+      allowNull: false,
     },
     conj: {
       type: DataTypes.STRING,
