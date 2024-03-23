@@ -34,7 +34,10 @@ const Admin = () => {
           : "Crear una nueva pregunta"}
       </button>
       {formularioHabilitado && <CrearPreguntaForm />}
-      <div>{userName && <NavBar onLogout={onLogout} />} </div>
+      <div>
+        {" "}
+        <NavBar onLogout={onLogout} />{" "}
+      </div>
     </div>
   );
 };
