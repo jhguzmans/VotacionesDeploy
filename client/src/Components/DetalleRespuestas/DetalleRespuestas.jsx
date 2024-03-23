@@ -125,11 +125,11 @@ const DetalleRespuestas = () => {
   }, [chartData]);
   console.log(
     "lo que descarga la ultima pregunta es: ",
-    ultimaPreguntaResponse.data.data.enunciado
+    ultimaPreguntaResponse
   );
   return (
     <div className={styles.container}>
-      <h2>{ultimaPreguntaResponse.data.data.enunciado}</h2>
+      <h2>Las respuestas son:</h2>
       {/* <h2>{ultimaPreguntaResponse.data.enunciado}</h2> */}
       <div className={styles.chartContainer}>
         <canvas id="tortaChart"></canvas>
