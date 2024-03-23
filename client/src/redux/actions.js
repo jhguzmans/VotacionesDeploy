@@ -19,14 +19,12 @@ import {
   //   CLEAR_SORTS,
 } from "./action-types";
 import axios from "axios";
-const URL_BACK = "";
 
 export const crearPregunta = (pregunta) => {
   console.log("En la action que crearía la pregunta");
-  const URL = `${URL_BACK}/crearPregunta`;
   return async (dispatch) => {
     try {
-      const { data } = await axios.post(URL, pregunta);
+      const { data } = await axios.post(`/crearPregunta`, pregunta);
       console.log("la data que me devuelve el post es: ", data);
       //if (!data.length) throw Error("No hay conjuntos");
       // else {
@@ -41,12 +39,10 @@ export const crearPregunta = (pregunta) => {
   };
 };
 
-export const ingreso = () => {
+export const ingreso = (username) => {
   return async (dispatch) => {
     try {
-      return dispatch({
-        type: INGRESO,
-      });
+      await axios.patch(`/ingreso/${username}`);
     } catch (error) {
       return error.message;
     }

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import CrearPreguntaForm from "../../Components/CrearPreguntaForm/CrearPreguntaForm";
 import DetalleRespuestas from "../../Components/DetalleRespuestas/DetalleRespuestas";
 import Llegada from "../../Components/Llegada/Llegada";
+import Cuorum from "../../Components/Cuorum/Cuorum";
 import styles from "./Admin.module.css"; // Importa tus estilos
 
 const Admin = () => {
@@ -20,6 +21,7 @@ const Admin = () => {
   return (
     <div className={styles.container}>
       <div>{<Llegada />}</div>
+      <div>{<Cuorum />}</div>
       <div>{<DetalleRespuestas />}</div>
       <h2>prueba</h2>
       <button onClick={handleToggleFormulario}>

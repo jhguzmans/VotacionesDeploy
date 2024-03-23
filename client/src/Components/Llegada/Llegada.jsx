@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Llegada.module.css";
-import { getConjs, getAptos, getTorres, ingreso } from "../../redux/actions";
+import { getAptos, getTorres, ingreso } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +10,6 @@ const Llegada = () => {
   const [selectedApto, setSelectedApto] = useState("");
   const torres = useSelector((state) => state.torres);
   const aptos = useSelector((state) => state.aptos);
-  const ingresos = useSelector((state) => state.ingresos);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -36,20 +35,18 @@ const Llegada = () => {
   }, [dispatch]);
 
   const handleSubmit = (event) => {
-    let username = "";
-    username = " " + selectedTorre + "-" + selectedApto;
+    const username = selectedTorre + "-" + selectedApto;
     event.preventDefault();
-    dispatch(ingreso()); // Aquí está el cambio
-    console.log("ingressos es: ", ingresos);
+    console.log("el username es: ", username);
+    dispatch(ingreso(username)); // Aquí está el cambio
   };
 
   return (
     <div className={styles.container}>
-      <h2>Las personas que han ingresado son: {ingresos}</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         {
           <label>
-            Torreeeeeeee o interior:
+            Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
               <option> Seleccionar la torre o el interior </option>
               {torres.map((torre, index) => (
