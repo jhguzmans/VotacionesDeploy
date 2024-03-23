@@ -19,7 +19,7 @@ const Home = () => {
   if (userName)
     return (
       <div className={styles.container}>
-        {userName && <NavBar onLogout={onLogout} />}
+        <NavBar onLogout={onLogout} />
         <PreguntaComponent />
       </div>
     );
