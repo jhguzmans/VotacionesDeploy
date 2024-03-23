@@ -14,10 +14,6 @@ const DetalleRespuestas = () => {
         const ultimaPreguntaResponse = await axios.get("/ultimaPregunta");
         setOpcRespuesta(ultimaPreguntaResponse.data.OpcionRespuesta);
         console.log("las opciones de respuesta son: ", opcRespuesta);
-        console.log(
-          "lo que descarga la ultima pregunta es: ",
-          ultimaPreguntaResponse
-        );
 
         const respuestasPromises =
           ultimaPreguntaResponse.data.OpcionRespuesta.map(async (opcion) => {
@@ -127,7 +123,10 @@ const DetalleRespuestas = () => {
       setChartInstance(newChartInstance);
     }
   }, [chartData]);
-
+  console.log(
+    "lo que descarga la ultima pregunta es: ",
+    ultimaPreguntaResponse.data
+  );
   return (
     <div className={styles.container}>
       <h2>aqui la pregunta</h2>
