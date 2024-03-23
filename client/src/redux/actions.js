@@ -3,7 +3,7 @@ import {
   GET_APTOS,
   GET_TORRES,
   LOGIN_USER,
-
+  INGRESO,
   //viejos
   //   GET_ACTIVITIES,
   //   SEARCH_COUNTRY,
@@ -40,6 +40,21 @@ export const crearPregunta = (pregunta) => {
     }
   };
 };
+
+export const ingreso = (pregunta) => {
+  console.log("En la action que crearía la pregunta");
+  const URL = `${URL_BACK}/crearPregunta`;
+  return async (dispatch) => {
+    try {
+      return dispatch({
+        type: INGRESO,
+      });
+    } catch (error) {
+      return error.message;
+    }
+  };
+};
+
 export const getConjs = () => {
   return async (dispatch) => {
     try {

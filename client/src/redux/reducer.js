@@ -1,4 +1,10 @@
-import { GET_CONJS, GET_APTOS, GET_TORRES, LOGIN_USER } from "./action-types";
+import {
+  GET_CONJS,
+  GET_APTOS,
+  GET_TORRES,
+  LOGIN_USER,
+  INGRESO,
+} from "./action-types";
 
 const initialState = {
   conjs: [],
@@ -6,6 +12,7 @@ const initialState = {
   aptos: [],
   user: null,
   isAutenticated: false,
+  ingresos,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -30,6 +37,11 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         user: payload,
         isAuthenticated: true,
+      };
+    case INGRESO:
+      return {
+        ...state,
+        ingresos: ingresos + 1,
       };
     //  case SEARCH_COUNTRY:
     //    return {
