@@ -2,7 +2,7 @@ const { User } = require("../db");
 
 const c_getCuorum = async () => {
   try {
-    const users = await User.findAll({ where: { ingreso: true } });
+    const users = await User.findAll({ where: { ingresa: true } });
     let sumaCoeficientes = 0;
     users.forEach((user) => {
       sumaCoeficientes += user.coef;
