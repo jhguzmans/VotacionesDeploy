@@ -13,7 +13,7 @@ const DetalleRespuestas = () => {
       try {
         const ultimaPreguntaResponse = await axios.get("/ultimaPregunta");
         setOpcRespuesta(ultimaPreguntaResponse.data.OpcionRespuesta);
-
+        console.log("ultima pregunta response es: ", ultimaPreguntaResponse);
         console.log("las opciones de respuesta son: ", opcRespuesta);
 
         const respuestasPromises =
