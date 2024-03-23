@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "./NavBar.module.css";
 
-const NavBar = ({ onLogout }) => {
+const Bar = ({ onLogout }) => {
   return (
     <div className={styles.navbar}>
       <span className={styles.welcome}>Bienvenido</span>
@@ -13,4 +13,4 @@ const NavBar = ({ onLogout }) => {
   );
 };
 
-export default NavBar;
+export default Bar;

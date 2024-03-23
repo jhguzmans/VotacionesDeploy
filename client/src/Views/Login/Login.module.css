@@ -5,6 +5,7 @@
   height: 100vh;
   background-color: white; /* Fondo blanco */
   flex-direction: column; /* Flex vertical */
+  color: black; /* Texto en negro */
 }
 
 .form {
