@@ -4,7 +4,7 @@ const c_postIngreso = async (username) => {
   try {
     await User.update(
       { ingresa: true },
-      { where: { torreApto: this.toString(username) } }
+      { where: { torreApto: { [Op.like]: `%${username}%` } } }
     );
     return "Entidad modificada correctamente";
   } catch (error) {
