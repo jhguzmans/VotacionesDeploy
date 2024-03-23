@@ -51,6 +51,7 @@ import DetalleRespuestas from "../../Components/DetalleRespuestas/DetalleRespues
 import Llegada from "../../Components/Llegada/Llegada";
 import Cuorum from "../../Components/Cuorum/Cuorum";
 import styles from "./Admin.module.css";
+import Bar from "../../Components/Bar/Bar";
 
 const Admin = () => {
   const [seccionActiva, setSeccionActiva] = useState("cuorum");
@@ -83,6 +84,7 @@ const Admin = () => {
           <div>{formularioHabilitado && <CrearPreguntaForm />}</div>
         )}
       </div>
+      <Bar />
     </div>
   );
 };
