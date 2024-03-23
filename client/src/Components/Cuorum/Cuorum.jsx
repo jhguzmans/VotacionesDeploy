@@ -18,7 +18,7 @@ const Cuorum = () => {
 
   return (
     <div className={styles.container}>
-      <div>
+      <div className={styles.quorum}>
         {quorum ? <p>El quorum es: {quorum}</p> : <p>Cargando quorum...</p>}
       </div>{" "}
     </div>

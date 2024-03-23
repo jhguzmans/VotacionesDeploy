@@ -4,7 +4,11 @@
   align-items: center;
   height: 100vh;
 }
+.quorum {
+  font-weight: bold; /* Letra en negrita */
 
+  font-size: 24px; /* Tamaño de letra grande */
+}
 .form {
   display: flex;
   flex-direction: column;
