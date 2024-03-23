@@ -7,6 +7,10 @@ module.exports = (sequelize) => {
       unique: true,
       allowNull: false,
     },
+    ingresa: {
+      type: DataTypes.BOOLEAN,
+      allowNull: true,
+    },
     conj: {
       type: DataTypes.STRING,
       allowNull: false,
