@@ -35,8 +35,7 @@ const Admin = () => {
       </button>
       {formularioHabilitado && <CrearPreguntaForm />}
       <div>
-        {" "}
-        <NavBar onLogout={onLogout} />{" "}
+        <NavBar onLogout={onLogout} />
       </div>
     </div>
   );
