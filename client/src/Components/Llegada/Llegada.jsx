@@ -10,7 +10,7 @@ const Llegada = () => {
   const [selectedApto, setSelectedApto] = useState("");
   const torres = useSelector((state) => state.torres);
   const aptos = useSelector((state) => state.aptos);
-  const ingresos = useSelector((state) => state.ingreso);
+  const ingresos = useSelector((state) => state.ingresos);
   const navigate = useNavigate();
 
   useEffect(() => {
