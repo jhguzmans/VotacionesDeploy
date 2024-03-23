@@ -103,7 +103,6 @@ const c_saveUsers = async (userData) => {
       failedInserts.push(rowData);
     }
   }
-
   return { failedInserts };
 };
 
