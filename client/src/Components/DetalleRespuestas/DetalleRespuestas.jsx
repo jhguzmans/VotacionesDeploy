@@ -123,11 +123,11 @@ const DetalleRespuestas = () => {
       setChartInstance(newChartInstance);
     }
   }, [chartData]);
-  if (ultimaPreguntaResponse.data) {
-    console.log(
-      "lo que descarga la ultima pregunta es: ",
-      ultimaPreguntaResponse.data
-    );
+//   if (ultimaPreguntaResponse.data) {
+//     console.log(
+//       "lo que descarga la ultima pregunta es: ",
+//       ultimaPreguntaResponse.data
+//     );
   }
   return (
     <div className={styles.container}>
