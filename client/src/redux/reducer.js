@@ -12,7 +12,7 @@ const initialState = {
   aptos: [],
   user: null,
   isAutenticated: false,
-  ingresos,
+  ingresos: 0,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
