@@ -28,6 +28,7 @@ const Admin = () => {
       <div>{<Llegada />}</div>
       <div>{<DetalleRespuestas />}</div>
       <h2>prueba</h2>
+      <button>Holi</button>
       <button onClick={handleToggleFormulario}>
         {formularioHabilitado
           ? "Deshabilitar Formulario"
