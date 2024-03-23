@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // import NavBar from "../../Components/NavBar/NavBar";
-import NavBar from "../../Components/NavBar/NavBar";
+// import NavBar from "../../Components/NavBar/NavBar";
 import PreguntaComponent from "../../Components/PreguntaComponent/PreguntaComponent";
 import styles from "./Home.module.css";
 
