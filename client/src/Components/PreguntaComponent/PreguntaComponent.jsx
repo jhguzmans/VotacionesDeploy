@@ -92,9 +92,9 @@ const PreguntaComponent = () => {
                   </label>
                 </li>
               ))}
+              <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
             </ul>
           )}
-          <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
         </>
       ) : (
         <p>No hay preguntas disponibles</p>
