@@ -3,11 +3,12 @@ const { User } = require("../db");
 const c_getCuorum = async () => {
   try {
     const users = await User.findAll({ where: { ingresa: true } });
-    let sumaCoeficientes = 0;
+    console.log("los usuarios que han ingresado son: ", users);
+    sumaCoeficientes = 0;
     users.forEach((user) => {
-      sumaCoeficientes += user.coef;
+      sumaCoeficientes += parseFloat(user.coef);
     });
-    return sumaCoeficientes;
+    return sumaCoeficientes.toFixed(4); // Redondeamos a 4 decimales
   } catch (error) {
     console.log(error);
     throw error;
