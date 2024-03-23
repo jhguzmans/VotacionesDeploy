@@ -1,0 +1,32 @@
+/* Navbar.module.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 10px;
+}
+
+.welcome {
+  text-align: center;
+  flex-grow: 1; /* Ocupa el espacio restante */
+}
+
+.logoutButton {
+  background-color: transparent;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* Media query para ajustar estilos en pantallas más grandes */
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding: 20px;
+  }
+  .welcome {
+    text-align: left;
+  }
+}

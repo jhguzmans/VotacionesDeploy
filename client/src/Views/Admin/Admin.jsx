@@ -5,8 +5,12 @@ import DetalleRespuestas from "../../Components/DetalleRespuestas/DetalleRespues
 import Llegada from "../../Components/Llegada/Llegada";
 import Cuorum from "../../Components/Cuorum/Cuorum";
 import styles from "./Admin.module.css"; // Importa tus estilos
-
+import NavBar from "../../Components/NavBar/NavBar";
 const Admin = () => {
+  const onLogout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
   const user = useSelector((state) => state.user);
   const userName = localStorage.getItem("usuario");
 
@@ -20,6 +24,9 @@ const Admin = () => {
 
   return (
     <div className={styles.container}>
+      <div>
+        <NavBar onLogout={onLogout} />
+      </div>
       <div>{<Llegada />}</div>
       <div>{<Cuorum />}</div>
       <div>{<DetalleRespuestas />}</div>

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./PreguntaComponent.module.css";
-const user = localStorage.getItem("usuario");
-const coef = localStorage.getItem("coef");
 
 const PreguntaComponent = () => {
+  const user = localStorage.getItem("usuario");
+  const coef = localStorage.getItem("coef");
   console.log("en pregunta component el user es: ", user);
   const [yaVoto, setYaVoto] = useState(false);
   const [ultimaPregunta, setUltimaPregunta] = useState(null);
