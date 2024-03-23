@@ -10,7 +10,7 @@ server.use(express.json());
 server.use(
   cors({
     origin: "*", // Permitir solicitudes solo desde este dominio
-    methods: "GET, POST, PUT, DELETE", // Opcional: Especificar los métodos HTTP permitidos
+    methods: "GET, POST, PUT, DELETE, PATCH ", // Opcional: Especificar los métodos HTTP permitidos
     allowedHeaders: ["Content-Type", "Authorization"], // Opcional: Especificar los encabezados permitidos }));
   })
 );
