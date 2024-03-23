@@ -4,15 +4,13 @@ import { getConjs, getAptos, getTorres, ingreso } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Llegada = () => {
   const dispatch = useDispatch();
-  const [selectedConj, setSelectedConj] = useState("");
   const [selectedTorre, setSelectedTorre] = useState("");
   const [selectedApto, setSelectedApto] = useState("");
-  const conjs = useSelector((state) => state.conjs);
   const torres = useSelector((state) => state.torres);
   const aptos = useSelector((state) => state.aptos);
-  const ingreso = useSelector((state) => state.ingreso);
+  const ingresos = useSelector((state) => state.ingreso);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,7 +45,7 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Las personas que han ingresado son: {ingreso}</h2>
+      <h2>Las personas que han ingresado son: {ingresos}</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
         {
           <label>
@@ -82,4 +80,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Llegada;

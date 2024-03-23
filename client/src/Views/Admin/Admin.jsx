@@ -19,7 +19,7 @@ const Admin = () => {
 
   return (
     <div className={styles.container}>
-      {/* <div>{<Llegada />}</div> */}
+      <div>{<Llegada />}</div>
       <div>{<DetalleRespuestas />}</div>
       <h2>prueba</h2>
       <button onClick={handleToggleFormulario}>
