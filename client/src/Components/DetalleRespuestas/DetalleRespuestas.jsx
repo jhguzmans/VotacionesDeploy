@@ -130,7 +130,8 @@ const DetalleRespuestas = () => {
 
   return (
     <div className={styles.container}>
-      <h2>{ultimaPreguntaResponse.data.enunciado}</h2>
+      <h2>aqui la pregunta</h2>
+      {/* <h2>{ultimaPreguntaResponse.data.enunciado}</h2> */}
       <div className={styles.chartContainer}>
         <canvas id="tortaChart"></canvas>
       </div>
