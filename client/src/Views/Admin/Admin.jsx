@@ -4,9 +4,8 @@ import CrearPreguntaForm from "../../Components/CrearPreguntaForm/CrearPreguntaF
 import DetalleRespuestas from "../../Components/DetalleRespuestas/DetalleRespuestas";
 import Llegada from "../../Components/Llegada/Llegada";
 import Cuorum from "../../Components/Cuorum/Cuorum";
-import styles from "./Admin.module.css"; // Importa tus estilos
-import NavBar from "../../Components/NavBar/NavBar";
-//import NavBar from "../../Components/NavBar/NavBar";
+import styles from "./Admin.module.css";
+// import NavBar from "../../Components/NavBar/NavBar";
 const Admin = () => {
   const onLogout = () => {
     localStorage.clear();
@@ -36,9 +35,9 @@ const Admin = () => {
           : "Crear una nueva pregunta"}
       </button>
       {formularioHabilitado && <CrearPreguntaForm />}
-      <div>
+      {/* <div>
         <NavBar onLogout={onLogout} />
-      </div>
+      </div> */}
     </div>
   );
 };
