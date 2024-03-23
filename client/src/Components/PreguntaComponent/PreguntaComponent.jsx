@@ -15,6 +15,7 @@ const PreguntaComponent = () => {
       try {
         const ultimaPreguntaResponse = await axios.get("/ultimaPregunta");
         setUltimaPregunta(ultimaPreguntaResponse.data);
+        console.log("en PreguntaComponent, preguntaId es: ", preguntaId);
       } catch (error) {
         console.error("Error al obtener los datos:", error);
       }
@@ -26,7 +27,6 @@ const PreguntaComponent = () => {
     const fetchData = async () => {
       try {
         const preguntaId = ultimaPregunta.preguntaId;
-        console.log("en PreguntaComponent, preguntaId es: ", preguntaId);
         const yaVotoResponse = await axios.get(
           `/yavoto?user=${user}&preguntaId=${preguntaId}`
         );
