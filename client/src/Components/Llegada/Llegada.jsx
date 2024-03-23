@@ -14,7 +14,7 @@ const Llegada = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getTorres(selectedConj));
+    dispatch(getTorres("La Castellana PH"));
   }, [dispatch, selectedConj]);
 
   useEffect(() => {
