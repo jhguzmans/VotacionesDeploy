@@ -6,6 +6,7 @@ import Llegada from "../../Components/Llegada/Llegada";
 import Cuorum from "../../Components/Cuorum/Cuorum";
 import styles from "./Admin.module.css"; // Importa tus estilos
 import NavBar from "../../Components/NavBar/NavBar";
+//import NavBar from "../../Components/NavBar/NavBar";
 const Admin = () => {
   const onLogout = () => {
     localStorage.clear();
