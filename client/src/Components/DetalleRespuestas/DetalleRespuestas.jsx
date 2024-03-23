@@ -123,10 +123,10 @@ const DetalleRespuestas = () => {
       setChartInstance(newChartInstance);
     }
   }, [chartData]);
-  if (ultimaPreguntaResponse) {
+  if (ultimaPreguntaResponse.data) {
     console.log(
       "lo que descarga la ultima pregunta es: ",
-      ultimaPreguntaResponse
+      ultimaPreguntaResponse.data
     );
   }
   return (
