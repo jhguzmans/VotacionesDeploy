@@ -17,6 +17,11 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
+    case INGRESO:
+      return {
+        ...state,
+        ingresos: state.ingresos + 1,
+      };
     case GET_CONJS:
       return {
         ...state,
@@ -37,11 +42,6 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         user: payload,
         isAuthenticated: true,
-      };
-    case INGRESO:
-      return {
-        ...state,
-        ingresos: ingresos + 1,
       };
     //  case SEARCH_COUNTRY:
     //    return {

@@ -42,8 +42,6 @@ export const crearPregunta = (pregunta) => {
 };
 
 export const ingreso = () => {
-  console.log("En la action que crearía la pregunta");
-  const URL = `${URL_BACK}/crearPregunta`;
   return async (dispatch) => {
     try {
       return dispatch({

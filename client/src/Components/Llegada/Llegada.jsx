@@ -15,7 +15,7 @@ const Llegada = () => {
 
   useEffect(() => {
     dispatch(getTorres("La Castellana PH"));
-  }, [dispatch, selectedConj]);
+  }, [dispatch, selectedTorre]);
 
   useEffect(() => {
     if (selectedTorre) {
@@ -35,12 +35,12 @@ const Llegada = () => {
     dispatch(getTorres());
   }, [dispatch]);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     let username = "";
     username = " " + selectedTorre + "-" + selectedApto;
-    dispatch();
     event.preventDefault();
-    await dispatch(ingreso(credentials));
+    dispatch(ingreso()); // Aquí está el cambio
+    console.log("ingressos es: ", ingresos);
   };
 
   return (
@@ -49,7 +49,7 @@ const Llegada = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         {
           <label>
-            Torre o interior:
+            Torreeeeeeee o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
               <option> Seleccionar la torre o el interior </option>
               {torres.map((torre, index) => (
