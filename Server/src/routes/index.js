@@ -13,7 +13,7 @@ const getCuorum = require("../handlers/getCuorum");
 const postRespuesta = require("../handlers/postRespuesta");
 const getRespuestaByPregunta = require("../handlers/getRespuestaByPregunta");
 const respuestaById = require("../handlers/respuestaById");
-const ingreso = require("../handlers/postIngreso");
+const postIngreso = require("../handlers/postIngreso");
 // const getActivities = require("../handlers/getActivities");
 // const deleteActivity = require("../handlers/deleteActivity");
 
@@ -25,7 +25,7 @@ router.get("/torres/", getTorresByConj);
 router.get("/conjs/", getConj);
 router.post("/user", postUser);
 router.post("/login", loginUser);
-router.post("/ingreso", ingreso);
+router.post("/ingreso", postIngreso);
 // router.get("/activities", getActivities);
 router.post("/save", saveUsers);
 router.post("/crearPregunta", postPregunta);

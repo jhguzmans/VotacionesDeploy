@@ -3,8 +3,8 @@ const axios = require("axios");
 const postIngreso = async (req, res) => {
   try {
     const { username } = req.body;
-    const createdPregunta = await c_postIngreso(username);
-    return res.status(200).json(createdPregunta);
+    const usuarioquellega = await c_postIngreso(username);
+    return res.status(200).json(usuarioquellega);
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
