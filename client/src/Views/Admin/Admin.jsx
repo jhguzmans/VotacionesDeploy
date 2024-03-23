@@ -24,8 +24,8 @@ const Admin = () => {
 
   return (
     <div className={styles.container}>
-      <div>{<Llegada />}</div>
       <div>{<Cuorum />}</div>
+      <div>{<Llegada />}</div>
       <div>{<DetalleRespuestas />}</div>
       <h2>prueba</h2>
       <button onClick={handleToggleFormulario}>
@@ -34,9 +34,7 @@ const Admin = () => {
           : "Crear una nueva pregunta"}
       </button>
       {formularioHabilitado && <CrearPreguntaForm />}
-      <div>
-        <NavBar onLogout={onLogout} />
-      </div>
+      <div>{userName && <NavBar onLogout={onLogout} />} </div>
     </div>
   );
 };
