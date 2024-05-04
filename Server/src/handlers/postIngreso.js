@@ -2,7 +2,7 @@ const c_postIngreso = require("../controlers/c_postIngreso");
 //const axios = require("axios");
 const postIngreso = async (req, res) => {
   try {
-    const { data } = req.body; // Aquí está el cambio
+    const data = req.body; // Aquí está el cambio
     console.log("La data que llega en el postIngreso es: ", data);
     const usuarioquellega = await c_postIngreso(data);
     return res.status(200).json(usuarioquellega);
