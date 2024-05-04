@@ -7,13 +7,15 @@ const c_postIngreso = async (data) => {
     // Calcular el coeficiente total de los apoderados
     let coeficienteApoderados = 0;
     for (const apoderado of data.apoderados) {
-      const apoderadoDB = await User.findOne({
-        where: {
-          torreApto: `${apoderado.selectedTorre}-${apoderado.selectedApto}`,
-        },
-      });
-      if (apoderadoDB && apoderadoDB.coef) {
-        coeficienteApoderados += apoderadoDB.coef;
+      if (apoderado.selectedTorre !== "") {
+        const apoderadoDB = await User.findOne({
+          where: {
+            torreApto: `${apoderado.selectedTorre}-${apoderado.selectedApto}`,
+          },
+        });
+        if (apoderadoDB && apoderadoDB.coef) {
+          coeficienteApoderados += apoderadoDB.coef;
+        }
       }
     }
 
