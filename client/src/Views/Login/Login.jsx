@@ -103,11 +103,16 @@ const Login = () => {
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
               <option> Seleccionar la torre o el interior </option>
-              {torres.map((torre, index) => (
-                <option key={torre} value={torre}>
-                  {torre}
-                </option>
-              ))}
+              {torres.sort().map(
+                (
+                  torre,
+                  index // Ordena las torres antes de mapearlas
+                ) => (
+                  <option key={torre} value={torre}>
+                    {torre}
+                  </option>
+                )
+              )}
             </select>
           </label>
         )}
@@ -116,11 +121,16 @@ const Login = () => {
             Apartamento:
             <select value={selectedApto} onChange={handleAptoChange}>
               <option>Seleccionar el apartamento. </option>
-              {aptos.map((apto, index) => (
-                <option key={apto} value={apto}>
-                  {apto}
-                </option>
-              ))}
+              {aptos.sort().map(
+                (
+                  apto,
+                  index // Ordena las torres antes de mapearlas
+                ) => (
+                  <option key={apto} value={apto}>
+                    {apto}
+                  </option>
+                )
+              )}
             </select>
           </label>
         )}

@@ -36,10 +36,11 @@ const CrearPreguntaForm = () => {
       <h2>Crear Nueva Pregunta</h2>
       <label>
         Enunciado:
-        <input
-          type="text"
+        <textarea
           value={enunciado}
           onChange={(e) => setEnunciado(e.target.value)}
+          rows={5} // Establece el número de filas visibles
+          cols={50} // Establece el número de columnas visibles
         />
       </label>
       <br />

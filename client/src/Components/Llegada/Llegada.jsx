@@ -13,7 +13,7 @@ const Llegada = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getTorres("La Castellana PH"));
+    dispatch(getTorres("La Finca SMZ 10"));
   }, [dispatch, selectedTorre]);
 
   useEffect(() => {
@@ -21,6 +21,10 @@ const Llegada = () => {
       dispatch(getAptos(selectedTorre));
     }
   }, [dispatch, selectedTorre]);
+
+  useEffect(() => {
+    dispatch(getTorres());
+  }, [dispatch]);
 
   const handleTorreChange = (event) => {
     setSelectedTorre(event.target.value);
@@ -30,15 +34,12 @@ const Llegada = () => {
     setSelectedApto(event.target.value);
   };
 
-  useEffect(() => {
-    dispatch(getTorres());
-  }, [dispatch]);
-
   const handleSubmit = (event) => {
     const username = selectedTorre + "-" + selectedApto;
     event.preventDefault();
     console.log("el username es: ", username);
-    dispatch(ingreso(username)); // Aquí está el cambio
+    dispatch(ingreso(username));
+    alert("Envío completado correctamente."); // Mostrar alerta al completar el envío
   };
 
   return (
@@ -49,11 +50,16 @@ const Llegada = () => {
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
               <option> Seleccionar la torre o el interior </option>
-              {torres.map((torre, index) => (
-                <option key={torre} value={torre}>
-                  {torre}
-                </option>
-              ))}
+              {torres.sort().map(
+                (
+                  torre,
+                  index // Ordena las torres antes de mapearlas
+                ) => (
+                  <option key={torre} value={torre}>
+                    {torre}
+                  </option>
+                )
+              )}
             </select>
           </label>
         }
@@ -62,16 +68,21 @@ const Llegada = () => {
             Apartamento:
             <select value={selectedApto} onChange={handleAptoChange}>
               <option>Seleccionar el apartamento. </option>
-              {aptos.map((apto, index) => (
-                <option key={apto} value={apto}>
-                  {apto}
-                </option>
-              ))}
+              {aptos.sort().map(
+                (
+                  apto,
+                  index // Ordena las torres antes de mapearlas
+                ) => (
+                  <option key={apto} value={apto}>
+                    {apto}
+                  </option>
+                )
+              )}
             </select>
           </label>
         )}
 
-        {<button type="submit">Enviar</button>}
+        <button type="submit">Enviar</button>
       </form>
     </div>
   );
