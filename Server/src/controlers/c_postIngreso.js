@@ -12,7 +12,9 @@ const c_postIngreso = async (data) => {
           torreApto: `${apoderado.selectedTorre}-${apoderado.selectedApto}`,
         },
       });
-      coeficienteApoderados += apoderadoDB.coef;
+      if (apoderadoDB && apoderadoDB.coef) {
+        coeficienteApoderados += apoderadoDB.coef;
+      }
     }
 
     // Actualizar el coeficiente del propietario
@@ -21,9 +23,11 @@ const c_postIngreso = async (data) => {
         torreApto: `${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
       },
     });
-    await propietarioDB.update({
-      coef: propietarioDB.coef + coeficienteApoderados,
-    });
+    if (propietarioDB && propietarioDB.coef) {
+      await propietarioDB.update({
+        coef: propietarioDB.coef + coeficienteApoderados,
+      });
+    }
 
     return propietarioDB;
   } catch (error) {

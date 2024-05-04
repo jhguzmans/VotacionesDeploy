@@ -25,7 +25,7 @@ router.get("/torres/", getTorresByConj);
 router.get("/conjs/", getConj);
 router.post("/user", postUser);
 router.post("/login", loginUser);
-router.patch("/ingreso/", postIngreso);
+router.patch("/ingreso", postIngreso);
 router.patch("/desactivarPregunta/:preguntaId", desactivarPregunta);
 // router.get("/activities", getActivities);
 router.post("/save", saveUsers);
