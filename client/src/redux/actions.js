@@ -39,15 +39,15 @@ export const crearPregunta = (pregunta) => {
   };
 };
 
-export const ingreso = (username) => {
-  return async (dispatch) => {
-    try {
-      await axios.patch(`/ingreso/${propietar}`);
-    } catch (error) {
-      return error.message;
-    }
-  };
-};
+// export const ingreso = (username) => {
+//   return async (dispatch) => {
+//     try {
+//       await axios.patch(`/ingreso/${propietar}`);
+//     } catch (error) {
+//       return error.message;
+//     }
+//   };
+// };
 
 export const getConjs = () => {
   return async (dispatch) => {
@@ -110,6 +110,14 @@ export const loginUser = (credentials) => async (dispatch) => {
     console.error("Error de inicio de sesión:", error);
   }
 };
+export const ingreso = (data) => async () => {
+  try {
+    const { datamodif } = await axios.patch("/ingreso", data);
+  } catch (error) {
+    console.error("Error de inicio de sesión:", error);
+  }
+};
+
 // export const getActivities = () => {
 //   const URL = "/activities";
 //   return async (dispatch) => {
