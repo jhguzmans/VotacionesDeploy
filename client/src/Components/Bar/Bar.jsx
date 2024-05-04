@@ -1,4 +1,3 @@
-// NavBar.jsx
 import React from "react";
 import styles from "./Bar.module.css";
 

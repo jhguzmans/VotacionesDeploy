@@ -56,13 +56,17 @@ import Bar from "../../Components/Bar/Bar";
 const Admin = () => {
   const [seccionActiva, setSeccionActiva] = useState("cuorum");
   const [formularioHabilitado, setFormularioHabilitado] = useState(true);
-
+  const onLogout = () => {
+    localStorage.clear();
+    window.location.href = "/";
+  };
   const handleToggleFormulario = () => {
     setFormularioHabilitado(!formularioHabilitado);
   };
 
   return (
     <div className={styles.container}>
+      <Bar onLogout={onLogout} />
       <div className={styles.navbar}>
         <button onClick={() => setSeccionActiva("cuorum")}>Cuorum</button>
         <button onClick={() => setSeccionActiva("llegada")}>Llegada</button>
@@ -84,7 +88,6 @@ const Admin = () => {
           <div>{formularioHabilitado && <CrearPreguntaForm />}</div>
         )}
       </div>
-      <Bar />
     </div>
   );
 };
