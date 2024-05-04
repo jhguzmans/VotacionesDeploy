@@ -4,7 +4,18 @@
   align-items: center;
   height: 100vh;
 }
+.containerUsuario {
+  display: flex;
+  flex-direction: column;
 
+  justify-content: center;
+  align-items: flex-start;
+  background-color: aliceblue;
+  border-radius: 5px;
+  label {
+    color: rgb(8, 8, 8);
+  }
+}
 .form {
   display: flex;
   flex-direction: column;

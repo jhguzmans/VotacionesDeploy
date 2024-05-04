@@ -42,7 +42,7 @@ export const crearPregunta = (pregunta) => {
 export const ingreso = (username) => {
   return async (dispatch) => {
     try {
-      await axios.patch(`/ingreso/${username}`);
+      await axios.patch(`/ingreso/${propietar}`);
     } catch (error) {
       return error.message;
     }

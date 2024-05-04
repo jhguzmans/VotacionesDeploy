@@ -4,6 +4,7 @@ import Chart from "chart.js/auto";
 import styles from "./DetalleRespuestas.module.css";
 
 const DetalleRespuestas = () => {
+  const [enunciado, setEnunciado] = useState([]);
   const [opcRespuesta, setOpcRespuesta] = useState([]);
   const [chartData, setChartData] = useState(null);
   const [datos, setDatos] = useState([]);
@@ -13,7 +14,11 @@ const DetalleRespuestas = () => {
       try {
         const ultimaPreguntaResponse = await axios.get("/ultimaPregunta");
         setOpcRespuesta(ultimaPreguntaResponse.data.OpcionRespuesta);
-
+        setEnunciado(ultimaPreguntaResponse.data.enunciado);
+        console.log(
+          "ultimaPreguntaResponse en DetalleRespuesta es: ",
+          ultimaPreguntaResponse
+        );
         console.log("las opciones de respuesta son: ", opcRespuesta);
 
         const respuestasPromises =
@@ -127,7 +132,9 @@ const DetalleRespuestas = () => {
 
   return (
     <div className={styles.container}>
-      <h2>Las respuestas son:</h2>
+      <h2 className={styles.enunciado}>
+        {enunciado ? enunciado : "Las respuestas son: "}
+      </h2>
       <div className={styles.chartContainer}>
         <canvas id="tortaChart"></canvas>
       </div>

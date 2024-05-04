@@ -1,8 +1,10 @@
 /* DetalleRespuestas.module.css */
-
+.enunciado {
+  color: #2196f3; /* Rojo */
+}
 .container {
   background-color: #f5f5f5; /* Fondo gris claro */
-  color: #333; /* Texto oscuro */
+  color: #2196f3; /* Texto oscuro */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
