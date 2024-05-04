@@ -14,6 +14,8 @@ module.exports = (sequelize) => {
     },
     activa: {
       type: DataTypes.BOOLEAN,
+      allowNull: false, // Indica que no puede ser nulo
+      defaultValue: true, // Valor por defecto es true
     },
   });
 };

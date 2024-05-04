@@ -1,47 +1,31 @@
-// const { User } = require("../db");
-// const { Op } = require("sequelize");
-
-// const c_postIngreso = async (username) => {
-//   try {
-//     const updatedEntity = await User.update(
-//       { ingresa: true },
-//       { where: { torreApto: { [Op.like]: `%${username}%` } }, returning: true }
-//     );
-
-//     const [numOfAffectedRows, [updatedUser]] = updatedEntity;
-
-//     if (numOfAffectedRows > 0) {
-//       return updatedUser;
-//     } else {
-//       throw new Error("No se encontró ninguna entidad para actualizar");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     throw error;
-//   }
-// };
-
 // module.exports = c_postIngreso;
 const { User } = require("../db");
 const { Op } = require("sequelize");
 
-const c_postIngreso = async (username) => {
+const c_postIngreso = async (data) => {
   try {
-    const updatedEntity = await User.update(
-      { ingresa: true },
-      { where: { torreApto: { [Op.like]: `%${username}%` } } }
-    );
-
-    const numOfAffectedRows = updatedEntity[0];
-
-    if (numOfAffectedRows > 0) {
-      const updatedUser = await User.findOne({
-        where: { torreApto: { [Op.like]: `%${username}%` } },
+    // Calcular el coeficiente total de los apoderados
+    let coeficienteApoderados = 0;
+    for (const apoderado of data.apoderados) {
+      const apoderadoDB = await User.findOne({
+        where: {
+          torreApto: `${apoderado.selectedTorre}-${apoderado.selectedApto}`,
+        },
       });
-      return updatedUser;
-    } else {
-      throw new Error("No se encontró ninguna entidad para actualizar");
+      coeficienteApoderados += apoderadoDB.coef;
     }
+
+    // Actualizar el coeficiente del propietario
+    const propietarioDB = await User.findOne({
+      where: {
+        torreApto: `${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+      },
+    });
+    await propietarioDB.update({
+      coef: propietarioDB.coef + coeficienteApoderados,
+    });
+
+    return propietarioDB;
   } catch (error) {
     console.log(error);
     throw error;

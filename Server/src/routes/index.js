@@ -1,5 +1,5 @@
 const { Router } = require("express");
-
+const desactivarPregunta = require("../controlers/desactivarPregunta");
 const getUsers = require("../handlers/getUsers");
 const getAptosByTorre = require("../handlers/getAptosByTorre");
 const postUser = require("../handlers/postUser");
@@ -26,6 +26,7 @@ router.get("/conjs/", getConj);
 router.post("/user", postUser);
 router.post("/login", loginUser);
 router.patch("/ingreso/:username", postIngreso);
+router.patch("/desactivarPregunta/:preguntaId", desactivarPregunta);
 // router.get("/activities", getActivities);
 router.post("/save", saveUsers);
 router.post("/crearPregunta", postPregunta);
