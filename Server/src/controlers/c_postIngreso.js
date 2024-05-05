@@ -27,7 +27,7 @@ const c_postIngreso = async (data) => {
     });
     if (propietarioDB && propietarioDB.coef) {
       await propietarioDB.update({
-        coef: propietarioDB.coef + coeficienteApoderados,
+        coef: parseFloat(propietarioDB.coef) + coeficienteApoderados,
         ingresa: true,
       });
     }
