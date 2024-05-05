@@ -32,7 +32,7 @@ const Llegada = () => {
   }, [dispatch, selectedTorre]);
   useEffect(() => {
     if (propietario.selectedTorre) {
-      dispatch(getAptos(propietario.selectedTorre));
+      dispatch(getAptos(toString(propietario.selectedTorre)));
     }
   }, [dispatch, propietario.selectedTorre]);
   useEffect(() => {

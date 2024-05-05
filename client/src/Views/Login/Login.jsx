@@ -31,7 +31,7 @@ const Login = () => {
 
   useEffect(() => {
     if (selectedTorre) {
-      dispatch(getAptos(selectedTorre));
+      dispatch(getAptos(toString(selectedTorre)));
     }
   }, [dispatch, selectedTorre]);
 
