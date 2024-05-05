@@ -110,13 +110,13 @@ export const loginUser = (credentials) => async (dispatch) => {
     console.error("Error de inicio de sesión:", error);
   }
 };
-export const ingreso = (data) => async () => {
-  try {
-    const { datamodif } = await axios.patch("/ingreso", data);
-  } catch (error) {
-    console.error("Error de inicio de sesión:", error);
-  }
-};
+// export const ingreso = (data) => async () => {
+//   try {
+//     const { datamodif } = await axios.patch("/ingreso", data);
+//   } catch (error) {
+//     console.error("Error de inicio de sesión:", error);
+//   }
+// };
 
 // export const getActivities = () => {
 //   const URL = "/activities";

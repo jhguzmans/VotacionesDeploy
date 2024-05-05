@@ -13,14 +13,17 @@ const Home = () => {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user);
   const userName = localStorage.getItem("usuario");
+  const coeficiente = localStorage.getItem("coef");
+
   console.log("En el home, el userName es: ", userName);
+  console.log("En el home, el user es: ", user);
   if (!userName) {
     navigate("/");
   }
   if (userName)
     return (
       <div className={styles.container}>
-        <Bar onLogout={onLogout} />
+        <Bar onLogout={onLogout} coef={coeficiente} userName={userName} />
         <PreguntaComponent />
       </div>
     );

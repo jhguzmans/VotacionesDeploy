@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Llegada.module.css";
-import { getAptos, getTorres, ingreso } from "../../redux/actions";
+import { getAptos, getTorres } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
