@@ -103,16 +103,18 @@ const Login = () => {
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
               <option> Seleccionar la torre o el interior </option>
-              {torres.sort().map(
-                (
-                  torre,
-                  index // Ordena las torres antes de mapearlas
-                ) => (
-                  <option key={torre} value={torre}>
-                    {torre}
-                  </option>
-                )
-              )}
+              {torres
+                .sort((a, b) => parseInt(a) - parseInt(b))
+                .map(
+                  (
+                    torre,
+                    index // Ordena las torres antes de mapearlas
+                  ) => (
+                    <option key={torre} value={torre}>
+                      {torre}
+                    </option>
+                  )
+                )}
             </select>
           </label>
         )}
