@@ -14,7 +14,7 @@ const c_postIngreso = async (data) => {
           },
         });
         if (apoderadoDB && apoderadoDB.coef) {
-          coeficienteApoderados += parceFloat(apoderadoDB.coef);
+          coeficienteApoderados += parseFloat(apoderadoDB.coef);
         }
       }
     }
