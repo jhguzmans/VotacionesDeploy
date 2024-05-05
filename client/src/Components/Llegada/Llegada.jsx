@@ -91,6 +91,14 @@ const Llegada = () => {
       .catch((error) => console.error("Error:", error));
     console.log(datos);
     alert("Los datos se han registrado correctamente."); // Mostrar alerta al completar el envío
+    setPropietario({ selectedTorre: "", selectedApto: "" });
+    setApoderados([
+      { selectedTorre: "", selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
+    ]);
+    setPoder(false);
   };
 
   const handlePoderChange = () => {
