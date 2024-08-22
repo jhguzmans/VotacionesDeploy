@@ -12,8 +12,8 @@ const Llegada = () => {
   const [apoderados, setApoderados] = useState([
     { selectedTorre: "", selectedApto: "" },
     { selectedTorre: "", selectedApto: "" },
-    { selectedTorre: "", selectedApto: "" },
-    { selectedTorre: "", selectedApto: "" },
+    // { selectedTorre: "", selectedApto: "" },
+    // { selectedTorre: "", selectedApto: "" },
   ]); // Arreglo con 4 objetos vacíos
   const [poder, setPoder] = useState(false);
   const [propietario, setPropietario] = useState({
