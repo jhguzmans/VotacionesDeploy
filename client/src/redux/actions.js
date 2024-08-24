@@ -107,7 +107,12 @@ export const loginUser = (credentials) => async (dispatch) => {
       payload: data.user,
     });
   } catch (error) {
-    console.error("Error de inicio de sesión:", error);
+    if (error.response && error.response.status === 401) {
+      alert("Usuario o contraseña incorrectos");
+    } else {
+      console.error("Error de inicio de sesión:", error);
+      alert("Error al iniciar sesión. Por favor, intenta nuevamente.");
+    }
   }
 };
 // export const ingreso = (data) => async () => {

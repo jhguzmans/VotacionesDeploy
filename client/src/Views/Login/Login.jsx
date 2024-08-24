@@ -9,7 +9,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedConj, setSelectedConj] = useState("");
-  const [selectedTorre, setSelectedTorre] = useState("");
+  //const [selectedTorre, setSelectedTorre] = useState("");
+  const selectedTorre = 1;
   const [selectedApto, setSelectedApto] = useState("");
   const [password, setPassword] = useState("");
   const conjs = useSelector((state) => state.conjs);
@@ -39,9 +40,9 @@ const Login = () => {
     setSelectedConj(event.target.value);
   };
 
-  const handleTorreChange = (event) => {
-    setSelectedTorre(event.target.value);
-  };
+  //   const handleTorreChange = (event) => {
+  //     setSelectedTorre(event.target.value);
+  //   };
 
   const handleAptoChange = (event) => {
     setSelectedApto(event.target.value);
@@ -59,10 +60,10 @@ const Login = () => {
     if (isAdmin) {
       username = selectedConj + " 1-1";
     } else {
-      username = selectedConj + " " + selectedTorre + "-" + selectedApto;
+      username = selectedConj + "-" + selectedTorre + "-" + selectedApto;
     }
     const credentials = { username, password };
-    //console.log(credentials);
+    console.log(credentials);
     event.preventDefault();
     await dispatch(loginUser(credentials));
 
@@ -98,7 +99,7 @@ const Login = () => {
           </select>
         </label>
 
-        {selectedConj && !isAdmin && (
+        {/* {selectedConj && !isAdmin && (
           <label disabled={!selectedConj && isAdmin}>
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
@@ -115,12 +116,13 @@ const Login = () => {
               )}
             </select>
           </label>
-        )}
-        {selectedTorre && !isAdmin && (
+        )} */}
+        {selectedConj && !isAdmin && (
+          //{selectedTorre && !isAdmin && (
           <label>
-            Apartamento:
+            Casa:
             <select value={selectedApto} onChange={handleAptoChange}>
-              <option>Seleccionar el apartamento. </option>
+              <option>Seleccionar la casa. </option>
               {aptos.sort().map(
                 (
                   apto,
