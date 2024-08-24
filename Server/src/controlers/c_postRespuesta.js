@@ -1,33 +1,8 @@
-// const { Respuesta } = require("../db.js");
-// const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
-//   try {
-//     const nuevaRespuesta = await Respuesta.create({
-//       preguntaId,
-//       opcionRespuestaId,
-//       userId,
-//       coef,
-//     });
-
-//     return nuevaRespuesta;
-//   } catch (error) {
-//     console.error("Error al crear la respuesta:", error);
-//     throw error;
-//   }
-// };
-
-// module.exports = c_postRespuesta;
-
 const { Respuesta, User } = require("../db.js");
 
 const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
-  console.log("lo que llega a c_postRespuesta es: ");
-  console.log("preguntaId es: ", preguntaId);
-  console.log("opcionRespuestaId es: ", opcionRespuestaId);
-  console.log("userId es: ", userId);
-  console.log("coef es: ", coef);
-
+  let coefApod = 0;
   try {
-    // Buscar al usuario por su userId (puedes cambiarlo a conjTorreApto si es necesario)
     // Remover las comillas del userId si las tiene
     const sanitizedUserId = userId.replace(/['"]+/g, "");
 
@@ -42,25 +17,52 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
     }
 
     // Extraer la información del arreglo apoderado
-    const apoderadoInfo = usuario.apoderado;
-    console.log("El usuario es: ", usuario);
+    let apoderadoInfo = usuario.apoderado;
+    console.log("el apoderadoInfo es: ", apoderadoInfo);
+    console.log("el tipo de apoderadoInfo es: ", typeof apoderadoInfo);
 
-    // Crear una nueva respuesta
-    const nuevaRespuesta = await Respuesta.create({
-      preguntaId,
-      opcionRespuestaId,
-      userId,
-      coef,
-    });
-
-    console.log(
-      "En c_postRespuesta lo que tiene apoderadoInfo es: ",
-      apoderadoInfo
+    // Crear una respuesta para el usuario principal
+    const respuestas = [];
+    respuestas.push(
+      await Respuesta.create({
+        preguntaId,
+        opcionRespuestaId,
+        userId: sanitizedUserId,
+        coef,
+      })
     );
 
-    // Puedes hacer algo con apoderadoInfo si lo necesitas en este contexto
+    // Verificar si apoderadoInfo es un string, y si es así, parsearlo
 
-    return nuevaRespuesta;
+    apoderadoInfo = JSON.parse(apoderadoInfo);
+
+    console.log("el apoderadoInfo es: ", apoderadoInfo);
+    console.log("el tipo de apoderadoInfo es: ", typeof apoderadoInfo);
+
+    // Crear una respuesta por cada apoderado
+    if (Array.isArray(apoderadoInfo) && apoderadoInfo.length > 0) {
+      for (const apoderado of apoderadoInfo) {
+        const apoderadoUserId = `La Finca MZ 1-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+        coefApod = await User.findOne({
+          where: { conjTorreApto: apoderadoUserId },
+          attributes: ["coef"],
+          raw: true,
+        });
+
+        // Verifica y convierte el valor a cadena si no lo es
+        const coefValue = coefApod ? String(coefApod.coef) : null;
+        respuestas.push(
+          await Respuesta.create({
+            preguntaId,
+            opcionRespuestaId,
+            userId: apoderadoUserId,
+            coef: coefValue,
+          })
+        );
+      }
+    }
+
+    return respuestas;
   } catch (error) {
     console.error("Error al crear la respuesta:", error);
     throw error;
