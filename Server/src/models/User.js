@@ -39,38 +39,19 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    idUser: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
+
     nameUser: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user2: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    idUser2: {
-      type: DataTypes.STRING(20),
-      allowNull: true,
-    },
-    nameUser2: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
     apoderado: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-    },
-    idApoderado: {
-      type: DataTypes.STRING(20),
+      type: DataTypes.JSON, // Cambiado a JSON para permitir almacenamiento de objetos
       allowNull: true,
     },
-    nameApoderado: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    //  apoderado: {
+    //    type: DataTypes.ARRAY(DataTypes.STRING),
+    //    allowNull: true,
+    //  },
   });
   //   User.hasMany(Respuesta, { foreignKey: "UserId" });
 };
