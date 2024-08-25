@@ -80,8 +80,8 @@ const Llegada = () => {
       apoderados,
     };
 
-    //fetch("http://localhost:3001/ingreso", {
-    fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
+    fetch("http://localhost:3001/ingreso", {
+      //fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -142,37 +142,33 @@ const Llegada = () => {
                 onChange={handleAptoChange}
               >
                 <option>Seleccionar la casa. </option>
-                {aptos.sort().map(
-                  (
-                    apto,
-                    index // Ordena las torres antes de mapearlas
-                  ) => (
+                {aptos
+                  .slice() // Hacer una copia del array para evitar mutaciones inesperadas
+                  .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente
+                  .map((apto, index) => (
                     <option key={apto} value={apto}>
                       {apto}
                     </option>
-                  )
-                )}
+                  ))}
               </select>
             </label>
           ) : (
             propietario.selectedTorre && (
               <label>
-                Apartamento:
+                Casa:
                 <select
                   value={propietario.selectedApto}
                   onChange={handleAptoChange}
                 >
-                  <option>Seleccionar el apartamento. </option>
-                  {aptos.sort().map(
-                    (
-                      apto,
-                      index // Ordena las torres antes de mapearlas
-                    ) => (
+                  <option>Seleccionar la casa. </option>
+                  {aptos
+                    .slice() // Hacer una copia del array para evitar mutaciones inesperadas
+                    .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente
+                    .map((apto, index) => (
                       <option key={apto} value={apto}>
                         {apto}
                       </option>
-                    )
-                  )}
+                    ))}
                 </select>
               </label>
             )
@@ -204,17 +200,20 @@ const Llegada = () => {
 
                 {apoderado.selectedTorre && (
                   <label>
-                    Apartamento:
+                    Casa:
                     <select
                       value={apoderado.selectedApto || ""}
                       onChange={(e) => handleAptoChange(e, index)}
                     >
-                      <option>Seleccionar el apartamento. </option>
-                      {aptos.sort().map((apto, index) => (
-                        <option key={index} value={apto}>
-                          {apto}
-                        </option>
-                      ))}
+                      <option>Seleccionar la casa. </option>
+                      {aptos
+                        .slice() // Hacer una copia del array para evitar mutaciones inesperadas
+                        .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente
+                        .map((apto, index) => (
+                          <option key={apto} value={apto}>
+                            {apto}
+                          </option>
+                        ))}
                     </select>
                   </label>
                 )}

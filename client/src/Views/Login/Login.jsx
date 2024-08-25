@@ -117,7 +117,7 @@ const Login = () => {
             </select>
           </label>
         )} */}
-        {selectedConj && !isAdmin && (
+        {/* {selectedConj && !isAdmin && (
           //{selectedTorre && !isAdmin && (
           <label>
             Casa:
@@ -133,6 +133,22 @@ const Login = () => {
                   </option>
                 )
               )}
+            </select>
+          </label>
+        )} */}
+        {selectedConj && !isAdmin && (
+          <label>
+            Casa:
+            <select value={selectedApto} onChange={handleAptoChange}>
+              <option>Seleccionar la casa</option>
+              {aptos
+                .slice() // Hacer una copia del array para evitar mutaciones inesperadas
+                .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente
+                .map((apto, index) => (
+                  <option key={apto} value={apto}>
+                    {apto}
+                  </option>
+                ))}
             </select>
           </label>
         )}

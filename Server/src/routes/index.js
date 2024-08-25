@@ -14,7 +14,7 @@ const postRespuesta = require("../handlers/postRespuesta");
 const getRespuestaByPregunta = require("../handlers/getRespuestaByPregunta");
 const respuestaById = require("../handlers/respuestaById");
 const postIngreso = require("../handlers/postIngreso");
-// const getActivities = require("../handlers/getActivities");
+const getVerificarVoto = require("../handlers/getVerificarVoto");
 // const deleteActivity = require("../handlers/deleteActivity");
 
 const router = Router();
@@ -27,7 +27,7 @@ router.post("/user", postUser);
 router.post("/login", loginUser);
 router.patch("/ingreso", postIngreso);
 router.patch("/desactivarPregunta/:preguntaId", desactivarPregunta);
-// router.get("/activities", getActivities);
+router.get("/verificarVoto", getVerificarVoto);
 router.post("/save", saveUsers);
 router.post("/crearPregunta", postPregunta);
 router.get("/ultimaPregunta", getPregunta);

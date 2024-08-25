@@ -29,6 +29,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
         opcionRespuestaId,
         userId: sanitizedUserId,
         coef,
+        pregIdUserId: sanitizedUserId + preguntaId,
       })
     );
 
@@ -57,6 +58,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
             opcionRespuestaId,
             userId: apoderadoUserId,
             coef: coefValue,
+            pregIdUserId: apoderadoUserId + preguntaId,
           })
         );
       }

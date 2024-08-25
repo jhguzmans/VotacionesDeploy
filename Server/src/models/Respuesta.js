@@ -4,7 +4,6 @@ module.exports = (sequelize) => {
   sequelize.define("Respuesta", {
     respuestaId: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
       autoIncrement: true,
     },
 
@@ -16,6 +15,10 @@ module.exports = (sequelize) => {
     },
     userId: {
       type: DataTypes.STRING,
+    },
+    pregIdUserId: {
+      type: DataTypes.STRING,
+      primaryKey: true,
     },
     coef: {
       type: DataTypes.STRING,
