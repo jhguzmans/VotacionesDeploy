@@ -111,11 +111,10 @@ import styles from "./PreguntaComponent.module.css";
 const PreguntaComponent = () => {
   const user = localStorage.getItem("usuario");
   const coef = localStorage.getItem("coef");
-  console.log("en pregunta component el user es: ", user);
   const [yaVoto, setYaVoto] = useState(false);
   const [ultimaPregunta, setUltimaPregunta] = useState(null);
   const [respuestaSeleccionada, setRespuestaSeleccionada] = useState(null);
-
+  const [apoderados, setApoderados] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -155,6 +154,28 @@ const PreguntaComponent = () => {
 
     verificarVoto();
   }, [ultimaPregunta]);
+  useEffect(() => {
+    //fetch(`https://votacionesdeploy-production.up.railway.app/getUserById?userId=${user}`, {
+    fetch(`http://localhost:3001/getUserById?userId=${user}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la solicitud");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Datos del usuario:", data);
+        setApoderados(JSON.parse(data.apoderado));
+      })
+      .catch((error) => {
+        console.error("Hubo un error al obtener el usuario:", error.message);
+      });
+  }, []);
 
   const handleSeleccionarRespuesta = (opcionId) => {
     setRespuestaSeleccionada(opcionId);
@@ -210,6 +231,13 @@ const PreguntaComponent = () => {
                   </label>
                 </li>
               ))}
+              {apoderados && (
+                <h4>
+                  Recuerde que usted tambien esta realizando la votación por:
+                </h4>
+              )}
+              {apoderados[0] && <p>Casa {apoderados[0].selectedApto}</p>}
+              {apoderados[1] && <p>Casa {apoderados[1].selectedApto}</p>}
               <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
             </ul>
           )}

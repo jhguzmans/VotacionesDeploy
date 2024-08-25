@@ -16,10 +16,12 @@ const respuestaById = require("../handlers/respuestaById");
 const postIngreso = require("../handlers/postIngreso");
 const getVerificarVoto = require("../handlers/getVerificarVoto");
 // const deleteActivity = require("../handlers/deleteActivity");
+const getUserById = require("../handlers/getUserById");
 
 const router = Router();
 
 router.get("/users", getUsers);
+router.get("/getUserById", getUserById);
 router.get("/aptos/:torre", getAptosByTorre);
 router.get("/torres/", getTorresByConj);
 router.get("/conjs/", getConj);
