@@ -155,13 +155,16 @@ const PreguntaComponent = () => {
     verificarVoto();
   }, [ultimaPregunta]);
   useEffect(() => {
-    //fetch(`https://votacionesdeploy-production.up.railway.app/getUserById?userId=${user}`, {
-    fetch(`http://localhost:3001/getUserById?userId=${user}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      `https://votacionesdeploy-production.up.railway.app/getUserById?userId=${user}`,
+      {
+        //fetch(`http://localhost:3001/getUserById?userId=${user}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error en la solicitud");
