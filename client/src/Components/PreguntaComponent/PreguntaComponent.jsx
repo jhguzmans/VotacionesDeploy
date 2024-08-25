@@ -239,8 +239,12 @@ const PreguntaComponent = () => {
                   Recuerde que usted tambien esta realizando la votación por:
                 </h4>
               )}
-              {apoderados[0] && <p>Casa {apoderados[0].selectedApto}</p>}
-              {apoderados[1] && <p>Casa {apoderados[1].selectedApto}</p>}
+              {apoderados && apoderados[0] && (
+                <p>Casa {apoderados[0].selectedApto}</p>
+              )}
+              {apoderados && apoderados[1] && (
+                <p>Casa {apoderados[1].selectedApto}</p>
+              )}
               <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
             </ul>
           )}
