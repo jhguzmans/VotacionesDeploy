@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    conjunto: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     activa: {
       type: DataTypes.BOOLEAN,
       allowNull: false, // Indica que no puede ser nulo

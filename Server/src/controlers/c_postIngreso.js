@@ -3,11 +3,13 @@ const { Op } = require("sequelize");
 
 const c_postIngreso = async (data) => {
   try {
+    console.log("Lo que llega al controler en la data es: ", data);
+    
     for (const apoderado of data.apoderados) {
       if (apoderado.selectedTorre !== "") {
         const apoderadoDB = await User.findOne({
           where: {
-            conjTorreApto: `La Finca MZ 1-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
+            conjTorreApto: `Fiorento-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
           },
         });
         if (apoderadoDB) {
@@ -20,9 +22,10 @@ const c_postIngreso = async (data) => {
 
     const propietarioDB = await User.findOne({
       where: {
-        conjTorreApto: `La Finca MZ 1-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
       },
     });
+console.log("Lo que trae el propietario es: " , propietarioDB);
 
     if (propietarioDB) {
       await propietarioDB.update({
@@ -33,7 +36,7 @@ const c_postIngreso = async (data) => {
 
     const propietarioActualizado = await User.findOne({
       where: {
-        conjTorreApto: `La Finca MZ 1-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
       },
     });
 

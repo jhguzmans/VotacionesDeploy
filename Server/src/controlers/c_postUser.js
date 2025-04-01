@@ -11,10 +11,11 @@ const c_postUser = async (
   nameUser2,
   apoderado,
   idApoderado,
-  nameApoderado
+  nameApoderado, conj
 ) => {
   try {
     const newUser = {
+      conj,
       pass,
       torre,
       apto,
@@ -28,6 +29,10 @@ const c_postUser = async (
       idApoderado,
       nameApoderado,
     };
+    console.log("Lo que se envía a la base de datos es: ");
+    console.log(newUser);
+    
+    
     const createdUser = await User.create(newUser);
 
     return createdUser;

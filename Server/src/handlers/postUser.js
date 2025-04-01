@@ -3,6 +3,7 @@ const axios = require("axios");
 const postUser = async (req, res) => {
   try {
     const {
+      conj,
       pass,
       torre,
       apto,
@@ -20,6 +21,7 @@ const postUser = async (req, res) => {
     console.log("los datos que se envían en el handler son:");
     console.log(torreApt);
     const createdUser = await c_postUser(
+      conj,
       pass,
       torre,
       apto,

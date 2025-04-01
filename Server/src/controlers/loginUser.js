@@ -5,7 +5,10 @@ const loginUser = async (req, res) => {
   const { username, password } = req.body;
   try {
     const user = await User.findOne({ where: { conjTorreApto: username } });
+    console.log("User que trae de la BD es: ", user)
+    console.log("lo que llega al controler en el inicio de sesión es: ","user: ", username, " pass: ", password);
     //if (user && bcrypt.compareSync(password, user.pass)) {
+    
     if (user && password == user.pass) {
       res.json({ user });
     } else {
