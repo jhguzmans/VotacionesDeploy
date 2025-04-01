@@ -6,24 +6,24 @@ import { useNavigate } from "react-router-dom";
 
 const Llegada = () => {
   const dispatch = useDispatch();
-  //const [selectedTorre, setSelectedTorre] = useState("");
-  const selectedTorre = 1;
+  const [selectedTorre, setSelectedTorre] = useState("");
+  //const selectedTorre = 1;
   const torres = useSelector((state) => state.torres);
   const aptos = useSelector((state) => state.aptos);
   const [apoderados, setApoderados] = useState([
-    { selectedTorre: 1, selectedApto: "" },
-    { selectedTorre: 1, selectedApto: "" },
-    // { selectedTorre: "", selectedApto: "" },
-    // { selectedTorre: "", selectedApto: "" },
+    //{ selectedTorre: 1, selectedApto: "" },
+    //{ selectedTorre: 1, selectedApto: "" },
+     { selectedTorre: "", selectedApto: "" },
+     { selectedTorre: "", selectedApto: "" },
   ]); // Arreglo con 4 objetos vacíos
   const [poder, setPoder] = useState(false);
   const [propietario, setPropietario] = useState({
-    selectedTorre: 1,
+    selectedTorre: "",
     selectedApto: "",
   });
 
   useEffect(() => {
-    dispatch(getTorres("La Finca SMZ 10"));
+    dispatch(getTorres("Fiorento"));
   }, [dispatch]);
 
   useEffect(() => {
@@ -80,8 +80,8 @@ const Llegada = () => {
       apoderados,
     };
 
-    //fetch("http://localhost:3001/ingreso", {
-    fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
+    fetch("http://localhost:3001/ingreso", {
+    //fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -112,7 +112,7 @@ const Llegada = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>Propietario: </label>
         <div className={styles.containerUsuario}>
-          {/* {
+           {
             <label>
               Torre:
               <select
@@ -132,9 +132,9 @@ const Llegada = () => {
                 )}
               </select>
             </label>
-          } */}
-          {/* {propietario.selectedTorre ? ( */}
-          {selectedTorre ? (
+          } 
+           {propietario.selectedTorre ? ( 
+        //{selectedTorre ? (
             <label>
               Casa:
               <select
@@ -183,20 +183,22 @@ const Llegada = () => {
             <div key={index}>
               <label>Apoderado {index + 1}: </label>
               <div className={styles.containerUsuario}>
-                {/* <label>
+                 <label>
                   Torre:
                   <select
                     value={apoderado.selectedTorre || ""}
                     onChange={(e) => handleTorreChange(e, index)}
                   >
                     <option> Seleccionar la torre o el interior </option>
-                    {torres.sort().map((torre, index) => (
-                      <option key={index} value={torre}>
-                        {torre}
-                      </option>
-                    ))}
+                    {torres
+  .sort((a, b) => Number(a) - Number(b)) // Ordenar como números
+  .map((torre) => (
+    <option key={torre} value={torre}>
+      {torre}
+    </option>
+  ))}
                   </select>
-                </label> */}
+                </label> 
 
                 {apoderado.selectedTorre && (
                   <label>

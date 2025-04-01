@@ -4,19 +4,7 @@ import {
   GET_TORRES,
   LOGIN_USER,
   INGRESO,
-  //viejos
-  //   GET_ACTIVITIES,
-  //   SEARCH_COUNTRY,
-  //   FILTER_ACTIVITY,
-  //   FILTER_CONTINENT,
-  //   SORT,
-  //   NEXT_PAGE,
-  //   SET_PAGE,
-  //   PREV_PAGE,
-  //   DO_CURRENT_COUNTRIES,
-  //   RESET_SEARCH,
-  //   CLEAR_FILTERS,
-  //   CLEAR_SORTS,
+
 } from "./action-types";
 import axios from "axios";
 
@@ -26,28 +14,28 @@ export const crearPregunta = (pregunta) => {
     try {
       const { data } = await axios.post(`/crearPregunta`, pregunta);
       console.log("la data que me devuelve el post es: ", data);
-      //if (!data.length) throw Error("No hay conjuntos");
-      // else {
-      //   return dispatch({
-      //     type: GET_CONJS,
-      //     payload: data,
-      //   });
-      // }
+      if (!data.length) throw Error("No hay conjuntos");
+      else {
+        return dispatch({
+          type: GET_CONJS,
+          payload: data,
+        });
+      }
     } catch (error) {
       return error.message;
     }
   };
 };
 
-// export const ingreso = (username) => {
-//   return async (dispatch) => {
-//     try {
-//       await axios.patch(`/ingreso/${propietar}`);
-//     } catch (error) {
-//       return error.message;
-//     }
-//   };
-// };
+export const ingreso = (username) => {
+  return async (dispatch) => {
+    try {
+      await axios.patch(`/ingreso/${propietar}`);
+    } catch (error) {
+      return error.message;
+    }
+  };
+};
 
 export const getConjs = () => {
   return async (dispatch) => {

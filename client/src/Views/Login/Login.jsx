@@ -9,8 +9,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedConj, setSelectedConj] = useState("");
-  //const [selectedTorre, setSelectedTorre] = useState("");
-  const selectedTorre = 1;
+  const [selectedTorre, setSelectedTorre] = useState("");
+  //const selectedTorre = 1;
   const [selectedApto, setSelectedApto] = useState("");
   const [password, setPassword] = useState("");
   const conjs = useSelector((state) => state.conjs);
@@ -40,9 +40,9 @@ const Login = () => {
     setSelectedConj(event.target.value);
   };
 
-  //   const handleTorreChange = (event) => {
-  //     setSelectedTorre(event.target.value);
-  //   };
+     const handleTorreChange = (event) => {
+       setSelectedTorre(event.target.value);
+     };
 
   const handleAptoChange = (event) => {
     setSelectedApto(event.target.value);
@@ -55,31 +55,59 @@ const Login = () => {
     dispatch(getConjs());
   }, [dispatch]);
 
+  // const handleSubmit = async (event) => {
+  //   let username = "";
+  //   if (isAdmin) {
+  //     username = selectedConj + " 1-1";
+  //   } else {
+  //     username = selectedConj + "-" + selectedTorre + "-" + selectedApto;
+  //   }
+  //   const credentials = { username, password };
+  //   console.log("Credenciales");
+    
+  //   console.log(credentials);
+  //   event.preventDefault();
+  //   await dispatch(loginUser(credentials));
+
+  //   if (user) {
+  //     console.log("el user es: ", user);
+  //     localStorage.setItem("usuario", JSON.stringify(user.conjTorreApto));
+  //     localStorage.setItem("tipo", JSON.stringify(user.tipo));
+  //     localStorage.setItem("coef", JSON.stringify(user.coef));
+
+  //     if (user.tipo == "propietario") {
+  //       navigate("/home");
+  //     } else {
+  //       navigate("/homeAdmin");
+  //     }
+  //   }
+  // };
+
   const handleSubmit = async (event) => {
-    let username = "";
-    if (isAdmin) {
-      username = selectedConj + " 1-1";
-    } else {
-      username = selectedConj + "-" + selectedTorre + "-" + selectedApto;
-    }
+    event.preventDefault(); // Moverlo al inicio para evitar ejecuciones innecesarias
+    
+    let username = isAdmin ? `${selectedConj} 1-1` : `${selectedConj}-${selectedTorre}-${selectedApto}`;
     const credentials = { username, password };
-    console.log(credentials);
-    event.preventDefault();
-    await dispatch(loginUser(credentials));
-
-    if (user) {
-      console.log("el user es: ", user);
-      localStorage.setItem("usuario", JSON.stringify(user.conjTorreApto));
-      localStorage.setItem("tipo", JSON.stringify(user.tipo));
-      localStorage.setItem("coef", JSON.stringify(user.coef));
-
-      if (user.tipo == "propietario") {
-        navigate("/home");
-      } else {
-        navigate("/homeAdmin");
-      }
-    }
+    
+    console.log("Credenciales enviadas:", credentials);
+    
+    await dispatch(loginUser(credentials)); // No intentamos leer `user` inmediatamente después
   };
+  
+  // Redirección después de que `user` se actualice
+  useEffect(() => {
+    if (user) {
+      console.log("Usuario autenticado:", user);
+  
+      // Guardamos solo si `user` tiene valores válidos
+      localStorage.setItem("usuario", JSON.stringify(user.conjTorreApto || ""));
+      localStorage.setItem("tipo", JSON.stringify(user.tipo || ""));
+      localStorage.setItem("coef", JSON.stringify(user.coef || ""));
+  
+      // Redirección según el tipo de usuario
+      navigate(user.tipo === "propietario" ? "/home" : "/homeAdmin");
+    }
+  }, [user, navigate]); // Se ejecuta solo cuando `user` cambia
 
   return (
     <div className={styles.container}>
@@ -99,30 +127,27 @@ const Login = () => {
           </select>
         </label>
 
-        {/* {selectedConj && !isAdmin && (
+        {selectedConj && !isAdmin && (
           <label disabled={!selectedConj && isAdmin}>
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
-              <option> Seleccionar la torre o el interior </option>
-              {torres.sort().map(
-                (
-                  torre,
-                  index // Ordena las torres antes de mapearlas
-                ) => (
-                  <option key={torre} value={torre}>
-                    {torre}
-                  </option>
-                )
-              )}
+              <option> Seleccione la torre </option>
+              {torres
+  .sort((a, b) => Number(a) - Number(b)) // Ordenar como números
+  .map((torre) => (
+    <option key={torre} value={torre}>
+      {torre}
+    </option>
+  ))}
             </select>
           </label>
-        )} */}
-        {/* {selectedConj && !isAdmin && (
-          //{selectedTorre && !isAdmin && (
+        )}
+        {/* {selectedConj && !isAdmin && ( */}
+          {selectedTorre && !isAdmin && (
           <label>
-            Casa:
+            Apartamento: 
             <select value={selectedApto} onChange={handleAptoChange}>
-              <option>Seleccionar la casa. </option>
+              <option>Seleccione el apartamento. </option>
               {aptos.sort().map(
                 (
                   apto,
@@ -135,23 +160,23 @@ const Login = () => {
               )}
             </select>
           </label>
-        )} */}
-        {selectedConj && !isAdmin && (
-          <label>
-            Casa:
-            <select value={selectedApto} onChange={handleAptoChange}>
-              <option>Seleccionar la casa</option>
-              {aptos
-                .slice() // Hacer una copia del array para evitar mutaciones inesperadas
-                .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente
-                .map((apto, index) => (
-                  <option key={apto} value={apto}>
-                    {apto}
-                  </option>
-                ))}
-            </select>
-          </label>
         )}
+      {/* {selectedConj && !isAdmin && (
+        <label>
+          Casa2:
+          <select value={selectedApto} onChange={handleAptoChange}>
+            <option>Seleccionar la casa</option>
+            {aptos
+              .slice() // Hacer una copia del array para evitar mutaciones inesperadas
+              .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente
+              .map((apto, index) => (
+                <option key={apto} value={apto}>
+                  {apto}
+                </option>
+              ))}
+          </select>
+        </label>
+      )} */}
         {(selectedApto || isAdmin) && (
           <label>
             Contraseña (4 dígitos):
