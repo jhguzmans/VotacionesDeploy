@@ -155,6 +155,7 @@ const PreguntaComponent = () => {
     verificarVoto();
   }, [ultimaPregunta]);
   useEffect(() => {
+    if (!user) return; 
     fetch(
       `https://votacionesdeploy-production.up.railway.app/getUserById?userId=${user}`,
       {
@@ -178,7 +179,7 @@ const PreguntaComponent = () => {
       .catch((error) => {
         console.error("Hubo un error al obtener el usuario:", error.message);
       });
-  }, []);
+  }, [user]);
 
   const handleSeleccionarRespuesta = (opcionId) => {
     setRespuestaSeleccionada(opcionId);
