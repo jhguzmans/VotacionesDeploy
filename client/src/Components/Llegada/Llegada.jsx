@@ -80,8 +80,8 @@ const Llegada = () => {
       apoderados,
     };
 
-    //fetch("http://localhost:3001/ingreso", {
-    fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
+    fetch("http://localhost:3001/ingreso", {
+    //fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -120,28 +120,26 @@ const Llegada = () => {
                 onChange={handleTorreChange}
               >
                 <option> Seleccionar la torre o el interior </option>
-                {torres.sort().map(
-                  (
-                    torre,
-                    index // Ordena las torres antes de mapearlas
-                  ) => (
-                    <option key={torre} value={torre}>
-                      {torre}
-                    </option>
-                  )
-                )}
+                {[...torres]
+  .map(Number) // Convertir a número si es necesario
+  .sort((a, b) => a - b) // Ordenar numéricamente
+  .map((torre) => (
+    <option key={torre} value={torre}>
+      {torre}
+    </option>
+  ))}
               </select>
             </label>
           } 
            {propietario.selectedTorre ? ( 
         //{selectedTorre ? (
             <label>
-              Casa:
+              Apartamento:
               <select
                 value={propietario.selectedApto}
                 onChange={handleAptoChange}
               >
-                <option>Seleccionar la casa. </option>
+                <option>Seleccionar el apartamento. </option>
                 {aptos
                   .slice() // Hacer una copia del array para evitar mutaciones inesperadas
                   .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente

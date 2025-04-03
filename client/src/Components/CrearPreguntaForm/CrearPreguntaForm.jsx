@@ -22,6 +22,8 @@ const CrearPreguntaForm = () => {
       enunciado,
       opcionesRespuesta: opcionesRespuesta.map((texto) => ({ texto })),
     };
+    console.log("la pregunta a crear en el componente CrearPRegunta es; ", pregunta);
+    
 
     // Dispatch de la acción "crearPregunta"
     dispatch(crearPregunta(pregunta));

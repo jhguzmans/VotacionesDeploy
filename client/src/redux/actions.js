@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 
 export const crearPregunta = (pregunta) => {
-  console.log("En la action que crearía la pregunta");
+  console.log("En la action que crearía la pregunta, la pregunta es: ", pregunta);
   return async (dispatch) => {
     try {
       const { data } = await axios.post(`/crearPregunta`, pregunta);
