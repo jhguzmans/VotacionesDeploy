@@ -14,7 +14,7 @@ module.exports = (sequelize) => {
     },
     conjunto: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     activa: {
       type: DataTypes.BOOLEAN,
