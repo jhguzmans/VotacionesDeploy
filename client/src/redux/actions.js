@@ -54,6 +54,8 @@ export const getConjs = () => {
   };
 };
 export const getTorres = (conj) => {
+  console.log("El conjunto en el dispatch es: ", conj);
+  
   const URL = "/torres/?conj=" + conj;
   return async (dispatch) => {
     try {
