@@ -43,7 +43,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
     // Crear una respuesta por cada apoderado
     if (Array.isArray(apoderadoInfo) && apoderadoInfo.length > 0) {
       for (const apoderado of apoderadoInfo) {
-        const apoderadoUserId = `La Finca MZ 1-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+        const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         coefApod = await User.findOne({
           where: { conjTorreApto: apoderadoUserId },
           attributes: ["coef"],
