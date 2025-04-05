@@ -38,9 +38,10 @@ function App() {
         {tipo === "admin" && <Route path="/*" element={<Admin />} />}
 
         {!(tipo === "propietario" || tipo === "admin") && (
-          <Route path="/*" element={<Login />} />
+          <Route path="*" element={<Login />} />
         )}
         {/* Redirección en caso de que no se cumpla ninguna ruta */}
+        <Route path="home"element={<Navigate to="/" />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
