@@ -40,6 +40,8 @@ function App() {
         {!(tipo === "propietario" || tipo === "admin") && (
           <Route path="/*" element={<Login />} />
         )}
+        {/* Redirección en caso de que no se cumpla ninguna ruta */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </div>
   );
