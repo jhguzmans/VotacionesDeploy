@@ -49,6 +49,7 @@ const PreguntaComponent = () => {
 
     verificarVoto();
   }, [ultimaPregunta]);
+
   useEffect(() => {
     if (!user) return; 
     fetch(`https://votacionesdeploy-production.up.railway.app/getUserById?userId=${user}`,{
@@ -133,11 +134,13 @@ const PreguntaComponent = () => {
                   Recuerde que usted tambien esta realizando la votación por:
                 </h4>
               )}
+              {console.log("apoderdos es: ",apoderados)
+              }
               {apoderados && apoderados[0] && (
-                <p>Casa {apoderados[0].selectedApto}</p>
+                <p>Poder 1 {apoderados[0].selectedApto}</p>
               )}
               {apoderados && apoderados[1] && apoderados[1].selectedApto &&(
-                <p>Casa {apoderados[1].selectedApto}</p>
+                <p>Poder 2 {apoderados[1].selectedApto}</p>
               )}
               <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
             </ul>
