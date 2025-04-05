@@ -136,7 +136,7 @@ const PreguntaComponent = () => {
               {apoderados && apoderados[0] && (
                 <p>Casa {apoderados[0].selectedApto}</p>
               )}
-              {apoderados && apoderados[1] && (
+              {apoderados && apoderados[1] && apoderados[1].selectedApto &&(
                 <p>Casa {apoderados[1].selectedApto}</p>
               )}
               <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
