@@ -136,11 +136,11 @@ const PreguntaComponent = () => {
               )}
               {console.log("apoderdos es: ",apoderados)
               }
-              {apoderados && apoderados[0] && (
-                <p>Poder 1 {apoderados[0].selectedApto}</p>
+              {apoderados && apoderados[0] && apoderados[0].selectedApto &&(
+                <p>Torre: {apoderados[0].selectedTorre} Apartamento: {apoderados[0].selectedApto}</p>
               )}
               {apoderados && apoderados[1] && apoderados[1].selectedApto &&(
-                <p>Poder 2 {apoderados[1].selectedApto}</p>
+                <p>Torre: {apoderados[0].selectedTorre} Apartamento: {apoderados[0].selectedApto}</p>
               )}
               <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
             </ul>
