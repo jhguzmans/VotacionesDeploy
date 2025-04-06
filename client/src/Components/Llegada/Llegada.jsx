@@ -23,8 +23,8 @@ const Llegada = () => {
   });
 
   useEffect(() => {
-    dispatch(getTorres("LA CASTELLANA PH"));
-    //dispatch(getTorres("Fiorento"));
+    //dispatch(getTorres("LA CASTELLANA PH"));
+    dispatch(getTorres("Fiorento"));
   }, []);
 
   useEffect(() => {
