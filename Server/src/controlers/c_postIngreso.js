@@ -9,8 +9,8 @@ const c_postIngreso = async (data) => {
       if (apoderado.selectedTorre !== "") {
         const apoderadoDB = await User.findOne({
           where: {
-            conjTorreApto: `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
-            //conjTorreApto: `Fiorento-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
+            //conjTorreApto: `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
+            conjTorreApto: `Fiorento-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
           },
         });
         if (apoderadoDB) {
@@ -20,11 +20,14 @@ const c_postIngreso = async (data) => {
         }
       }
     }
+console.log("Para buscar propietarioDB, lo busca con: ");
+console.log(`Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`);
+
 
     const propietarioDB = await User.findOne({
       where: {
-        conjTorreApto: `LA CASTELLANA PH-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
-        //conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        //conjTorreApto: `LA CASTELLANA PH-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
       },
     });
 console.log("Lo que trae el propietario es: " , propietarioDB);
@@ -38,8 +41,8 @@ console.log("Lo que trae el propietario es: " , propietarioDB);
 
     const propietarioActualizado = await User.findOne({
       where: {
-        conjTorreApto: `LA CASTELLANA PH-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
-        //conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        //conjTorreApto: `LA CASTELLANA PH-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
       },
     });
 
