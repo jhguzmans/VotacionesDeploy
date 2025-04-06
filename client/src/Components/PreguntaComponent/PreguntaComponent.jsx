@@ -52,8 +52,8 @@ const PreguntaComponent = () => {
 
   useEffect(() => {
     if (!user) return; 
-    //fetch(`https://votacionesdeploy-production.up.railway.app/getUserById?userId=${user}`,{
-        fetch(`http://localhost:3001/getUserById?userId=${user}`, {
+    fetch(`https://votacionesdeploy-production.up.railway.app/getUserById?userId=${user}`,{
+        //fetch(`http://localhost:3001/getUserById?userId=${user}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
