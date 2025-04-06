@@ -41,17 +41,47 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
     console.log("el tipo de apoderadoInfo es: ", typeof apoderadoInfo);
 
     // Crear una respuesta por cada apoderado
+    // if (Array.isArray(apoderadoInfo) && apoderadoInfo.length > 0) {
+    //   for (const apoderado of apoderadoInfo) {
+    //     const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+    //     coefApod = await User.findOne({
+    //       where: { conjTorreApto: apoderadoUserId },
+    //       attributes: ["coef"],
+    //       raw: true,
+    //     });
+
+    //     // Verifica y convierte el valor a cadena si no lo es
+    //     const coefValue = coefApod ? String(coefApod.coef) : null;
+    //     respuestas.push(
+    //       await Respuesta.create({
+    //         preguntaId,
+    //         opcionRespuestaId,
+    //         userId: apoderadoUserId,
+    //         coef: coefValue,
+    //         pregIdUserId: apoderadoUserId + preguntaId,
+    //       })
+    //     );
+    //   }
+    // }
     if (Array.isArray(apoderadoInfo) && apoderadoInfo.length > 0) {
       for (const apoderado of apoderadoInfo) {
-        const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
-        coefApod = await User.findOne({
+        // Validación: si falta torre o apto, saltar
+        if (!apoderado.selectedTorre || !apoderado.selectedApto) {
+          console.warn("Apoderado con datos incompletos, se omite:", apoderado);
+          continue;
+        }
+    
+        const apoderadoUserId = `Fiorento-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+        //const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+        
+        const coefApod = await User.findOne({
           where: { conjTorreApto: apoderadoUserId },
           attributes: ["coef"],
           raw: true,
         });
-
-        // Verifica y convierte el valor a cadena si no lo es
+    
         const coefValue = coefApod ? String(coefApod.coef) : null;
+    
         respuestas.push(
           await Respuesta.create({
             preguntaId,
@@ -63,6 +93,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
         );
       }
     }
+    
 
     return respuestas;
   } catch (error) {
