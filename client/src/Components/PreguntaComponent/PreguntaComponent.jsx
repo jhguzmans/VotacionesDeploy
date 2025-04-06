@@ -129,7 +129,7 @@ const PreguntaComponent = () => {
                   </label>
                 </li>
               ))}
-              {apoderados && (
+              {apoderados && apoderados[0] && apoderados[0].selectedApto &&(
                 <h4>
                   Recuerde que usted tambien esta realizando la votación por:
                 </h4>
