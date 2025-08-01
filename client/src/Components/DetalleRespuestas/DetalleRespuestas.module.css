@@ -2,6 +2,46 @@
 .enunciado {
   color: #2196f3; /* Rojo */
 }
+.listaRespuestas {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.itemRespuesta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  background: #ffffff;
+  padding: 8px 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.colorIndicador {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.opcionTexto {
+  font-weight: 600;
+}
+.totalVotos {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #2196f3;
+}
+.votosTexto {
+  margin-left: 6px;
+  color: #444;
+}
 .container {
   background-color: #f5f5f5; /* Fondo gris claro */
   color: #2196f3; /* Texto oscuro */

@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import Home from "./Views/Home/Home";
 import Admin from "./Views/Admin/Admin";
 import axios from "axios";
-//comentario
 //axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.baseURL = "https://votacionesdeploy-production.up.railway.app";
 function App() {

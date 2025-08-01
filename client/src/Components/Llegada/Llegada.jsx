@@ -23,8 +23,8 @@ const Llegada = () => {
   });
 
   useEffect(() => {
-    //dispatch(getTorres("LA CASTELLANA PH"));
-    dispatch(getTorres("Fiorento"));
+    dispatch(getTorres("La Castellana"));
+    //dispatch(getTorres("Fiorento"));
   }, []);
 
   useEffect(() => {
@@ -81,8 +81,8 @@ const Llegada = () => {
       apoderados,
     };
 
-    //fetch("http://localhost:3001/ingreso", {
-    fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
+    fetch("http://localhost:3001/ingreso", {
+    //fetch("https://votacionesdeploy-production.up.railway.app/ingreso", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
