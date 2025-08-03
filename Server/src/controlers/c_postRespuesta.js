@@ -71,7 +71,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
           continue;
         }
     
-        const apoderadoUserId = `Fiorento-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+        const apoderadoUserId = `La Castellana-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         //const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         
         const coefApod = await User.findOne({
