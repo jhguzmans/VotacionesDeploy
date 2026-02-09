@@ -55,33 +55,7 @@ const Login = () => {
     dispatch(getConjs());
   }, [dispatch]);
 
-  // const handleSubmit = async (event) => {
-  //   let username = "";
-  //   if (isAdmin) {
-  //     username = selectedConj + " 1-1";
-  //   } else {
-  //     username = selectedConj + "-" + selectedTorre + "-" + selectedApto;
-  //   }
-  //   const credentials = { username, password };
-  //   console.log("Credenciales");
-    
-  //   console.log(credentials);
-  //   event.preventDefault();
-  //   await dispatch(loginUser(credentials));
-
-  //   if (user) {
-  //     console.log("el user es: ", user);
-  //     localStorage.setItem("usuario", JSON.stringify(user.conjTorreApto));
-  //     localStorage.setItem("tipo", JSON.stringify(user.tipo));
-  //     localStorage.setItem("coef", JSON.stringify(user.coef));
-
-  //     if (user.tipo == "propietario") {
-  //       navigate("/home");
-  //     } else {
-  //       navigate("/homeAdmin");
-  //     }
-  //   }
-  // };
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault(); // Moverlo al inicio para evitar ejecuciones innecesarias
@@ -109,17 +83,20 @@ const Login = () => {
     }
   }, [user, navigate]); // Se ejecuta solo cuando `user` cambia
 
-  return (
-    <div className={styles.container}>
-      <div className="logoContainer">
-  <img src={logoImagen} alt="Logo" />
-</div>
+ return (
+  <div className={styles.container}>
+    <div className={styles.card}>
+      
+      <div className={styles.logoContainer}>
+        <img src={logoImagen} alt="Logo" />
+      </div>
+
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>
           Conjunto:
           <select value={selectedConj} onChange={handleConjChange}>
-            <option>Seleccionar el conjunto </option>
-            {conjs.map((conj, index) => (
+            <option>Seleccionar el conjunto</option>
+            {conjs.map((conj) => (
               <option key={conj} value={conj}>
                 {conj}
               </option>
@@ -128,55 +105,35 @@ const Login = () => {
         </label>
 
         {selectedConj && !isAdmin && (
-          <label disabled={!selectedConj && isAdmin}>
+          <label>
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
-              <option> Seleccione la torre </option>
+              <option>Seleccione la torre</option>
               {torres
-  .sort((a, b) => Number(a) - Number(b)) // Ordenar como números
-  .map((torre) => (
-    <option key={torre} value={torre}>
-      {torre}
-    </option>
-  ))}
-            </select>
-          </label>
-        )}
-        {/* {selectedConj && !isAdmin && ( */}
-          {selectedTorre && !isAdmin && (
-          <label>
-            Apartamento: 
-            <select value={selectedApto} onChange={handleAptoChange}>
-              <option>Seleccione el apartamento. </option>
-              {aptos.sort().map(
-                (
-                  apto,
-                  index // Ordena las torres antes de mapearlas
-                ) => (
-                  <option key={apto} value={apto}>
-                    {apto}
+                .sort((a, b) => Number(a) - Number(b))
+                .map((torre) => (
+                  <option key={torre} value={torre}>
+                    {torre}
                   </option>
-                )
-              )}
+                ))}
             </select>
           </label>
         )}
-      {/* {selectedConj && !isAdmin && (
-        <label>
-          Casa2:
-          <select value={selectedApto} onChange={handleAptoChange}>
-            <option>Seleccionar la casa</option>
-            {aptos
-              .slice() // Hacer una copia del array para evitar mutaciones inesperadas
-              .sort((a, b) => parseInt(a) - parseInt(b)) // Ordenar numéricamente
-              .map((apto, index) => (
+
+        {selectedTorre && !isAdmin && (
+          <label>
+            Apartamento:
+            <select value={selectedApto} onChange={handleAptoChange}>
+              <option>Seleccione el apartamento</option>
+              {aptos.sort().map((apto) => (
                 <option key={apto} value={apto}>
                   {apto}
                 </option>
               ))}
-          </select>
-        </label>
-      )} */}
+            </select>
+          </label>
+        )}
+
         {(selectedApto || isAdmin) && (
           <label>
             Contraseña (4 dígitos):
@@ -188,10 +145,15 @@ const Login = () => {
             />
           </label>
         )}
-        {password.length > 3 && <button type="submit">Enviar</button>}
+
+        {password.length > 3 && (
+          <button type="submit">Ingresar</button>
+        )}
       </form>
+
     </div>
-  );
+  </div>
+);
 };
 
 export default Login;
