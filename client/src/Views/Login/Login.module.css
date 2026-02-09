@@ -14,4 +14,17 @@
   gap: 10px;
 }
 
+.logoContainer {
+  width: 70vw;        /* 70% del ancho del viewport */
+  height: 70vh;       /* 70% del alto del viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoContainer img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Mantiene proporción */
+}
 /* Agrega estilos adicionales según tus necesidades */

@@ -111,9 +111,9 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
-      <div>
-        <img src={logoImagen} alt="Logo" />
-      </div>
+      <div className="logoContainer">
+  <img src={logoImagen} alt="Logo" />
+</div>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>
           Conjunto:
