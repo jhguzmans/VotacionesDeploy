@@ -6,25 +6,28 @@ import { useNavigate } from "react-router-dom";
 
 const Llegada = () => {
   const dispatch = useDispatch();
-  const [selectedTorre, setSelectedTorre] = useState("");
-  //const selectedTorre = 1;
+  //const [selectedTorre, setSelectedTorre] = useState("");
+  const selectedTorre = 1;
   const torres = useSelector((state) => state.torres);
   const aptos = useSelector((state) => state.aptos);
   const [apoderados, setApoderados] = useState([
-    //{ selectedTorre: 1, selectedApto: "" },
-    //{ selectedTorre: 1, selectedApto: "" },
-     { selectedTorre: "", selectedApto: "" },
-     { selectedTorre: "", selectedApto: "" },
+    { selectedTorre: 1, selectedApto: "" },
+    { selectedTorre: 1, selectedApto: "" },
+    //  { selectedTorre: "", selectedApto: "" },
+    //  { selectedTorre: "", selectedApto: "" },
   ]); // Arreglo con 4 objetos vacíos
   const [poder, setPoder] = useState(false);
   const [propietario, setPropietario] = useState({
-    selectedTorre: "",
+    //selectedTorre: "",
+    selectedTorre: 1,
     selectedApto: "",
   });
 
   useEffect(() => {
-    dispatch(getTorres("La Castellana"));
+    //dispatch(getTorres("La Castellana"));
     //dispatch(getTorres("Fiorento"));
+    dispatch(getTorres("EL RECODO DEL PARQUE P. H."));
+    
   }, []);
 
   useEffect(() => {
@@ -114,23 +117,23 @@ const Llegada = () => {
         <label>Propietario: </label>
         <div className={styles.containerUsuario}>
            {
-            <label>
-              Torre:
-              <select
-                value={propietario.selectedTorre}
-                onChange={handleTorreChange}
-              >
-                <option> Seleccionar la torre o el interior </option>
-                {[...torres]
-  .map(Number) // Convertir a número si es necesario
-  .sort((a, b) => a - b) // Ordenar numéricamente
-  .map((torre) => (
-    <option key={torre} value={torre}>
-      {torre}
-    </option>
-  ))}
-              </select>
-            </label>
+  //           <label>
+  //             Torre:
+  //             <select
+  //               value={propietario.selectedTorre}
+  //               onChange={handleTorreChange}
+  //             >
+  //               <option> Seleccionar la torre o el interior </option>
+  //               {[...torres]
+  //               .map(Number) // Convertir a número si es necesario
+  //               .sort((a, b) => a - b) // Ordenar numéricamente
+  //               .map((torre) => (
+  //               <option key={torre} value={torre}>
+  //               {torre}
+  //               </option>
+  //              ))}
+  //             </select>
+  //           </label>
           } 
            {propietario.selectedTorre ? ( 
         //{selectedTorre ? (

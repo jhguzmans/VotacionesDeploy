@@ -9,8 +9,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedConj, setSelectedConj] = useState("");
-  const [selectedTorre, setSelectedTorre] = useState("");
-  //const selectedTorre = 1;
+  //const [selectedTorre, setSelectedTorre] = useState("");
+  const selectedTorre = 1;
   const [selectedApto, setSelectedApto] = useState("");
   const [password, setPassword] = useState("");
   const conjs = useSelector((state) => state.conjs);
@@ -30,11 +30,12 @@ const Login = () => {
     }
   }, [dispatch, selectedConj]);
 
-  useEffect(() => {
-    if (selectedTorre) {
-      dispatch(getAptos(selectedTorre));
-    }
-  }, [dispatch, selectedTorre]);
+   useEffect(() => {
+     if (selectedTorre) {
+       dispatch(getAptos(selectedTorre));
+     }
+   }, [dispatch, selectedTorre]);
+
 
   const handleConjChange = (event) => {
     setSelectedConj(event.target.value);
@@ -104,7 +105,7 @@ const Login = () => {
           </select>
         </label>
 
-        {selectedConj && !isAdmin && (
+       {/* {selectedConj && !isAdmin && (
           <label>
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
@@ -118,7 +119,7 @@ const Login = () => {
                 ))}
             </select>
           </label>
-        )}
+        )} */}
 
         {selectedTorre && !isAdmin && (
           <label>
