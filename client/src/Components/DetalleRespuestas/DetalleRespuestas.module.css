@@ -1,6 +1,7 @@
 /* DetalleRespuestas.module.css */
 .enunciado {
-  color: #2196f3; /* Rojo */
+ /*  color: #2196f3; /* Rojo */
+  color: #35383a; /* Azul */
 }
 .listaRespuestas {
   margin-top: 30px;

@@ -3,7 +3,7 @@ import styles from "./Login.module.css";
 import { getConjs, getAptos, getTorres, loginUser } from "../../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import logoImagen from "../../images/votaConjVert.png";
+import logoImagen from "../../images/2.png";
 
 const Login = () => {
   const dispatch = useDispatch();
