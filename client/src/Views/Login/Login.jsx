@@ -109,7 +109,7 @@ const Login = () => {
           <label>
             Torre o interior:
             <select value={selectedTorre} onChange={handleTorreChange}>
-              <option>Seleccione la torre</option>
+              <option>Seleccione la torre o interior</option>
               {torres
                 .sort((a, b) => Number(a) - Number(b))
                 .map((torre) => (
