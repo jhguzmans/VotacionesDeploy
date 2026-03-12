@@ -48,7 +48,7 @@ console.log("Lo que trae el propietario es: " , propietarioDB);
       },
     });
 
-    return propietarioDB;
+    return propietarioActualizado;
   } catch (error) {
     console.log(error);
     throw error;
