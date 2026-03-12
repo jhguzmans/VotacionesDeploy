@@ -40,29 +40,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
     console.log("el apoderadoInfo es: ", apoderadoInfo);
     console.log("el tipo de apoderadoInfo es: ", typeof apoderadoInfo);
 
-    // Crear una respuesta por cada apoderado
-    // if (Array.isArray(apoderadoInfo) && apoderadoInfo.length > 0) {
-    //   for (const apoderado of apoderadoInfo) {
-    //     const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
-    //     coefApod = await User.findOne({
-    //       where: { conjTorreApto: apoderadoUserId },
-    //       attributes: ["coef"],
-    //       raw: true,
-    //     });
-
-    //     // Verifica y convierte el valor a cadena si no lo es
-    //     const coefValue = coefApod ? String(coefApod.coef) : null;
-    //     respuestas.push(
-    //       await Respuesta.create({
-    //         preguntaId,
-    //         opcionRespuestaId,
-    //         userId: apoderadoUserId,
-    //         coef: coefValue,
-    //         pregIdUserId: apoderadoUserId + preguntaId,
-    //       })
-    //     );
-    //   }
-    // }
+    
     if (Array.isArray(apoderadoInfo) && apoderadoInfo.length > 0) {
       for (const apoderado of apoderadoInfo) {
         // Validación: si falta torre o apto, saltar
@@ -71,7 +49,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
           continue;
         }
     
-        const apoderadoUserId = `La Castellana-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+        const apoderadoUserId = `EL RECODO DEL PARQUE P. H.-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         //const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         
         const coefApod = await User.findOne({
