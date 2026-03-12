@@ -37,7 +37,8 @@
   margin-top: 20px;
   font-size: 22px;
   font-weight: bold;
-  color: #2196f3;
+ /* color: #2196f3;*/
+  color: #35383a; /* Azul */
 }
 .votosTexto {
   margin-left: 6px;
@@ -45,7 +46,8 @@
 }
 .container {
   background-color: #f5f5f5; /* Fondo gris claro */
-  color: #2196f3; /* Texto oscuro */
+  /*color: #2196f3; /* Texto oscuro */
+  color: #35383a; /* Azul */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -53,7 +55,8 @@
 }
 
 h2 {
-  color: #00008b; /* Azul principal */
+  /*color: #00008b; /* Azul principal */
+  color: hsl(32, 94%, 48%); /* Azul principal */
   margin-bottom: 20px;
 }
 

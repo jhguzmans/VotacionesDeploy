@@ -60,7 +60,8 @@
   font-size: 15px;
   border-radius: 8px;
   border: none;
-  background-color: #1976d2;
+ /* background-color: #1976d2;*/
+  background-color: #35383a; /* Azul principal */
   color: white;
   font-weight: 600;
 }
