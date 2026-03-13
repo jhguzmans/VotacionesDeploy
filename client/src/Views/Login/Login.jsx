@@ -123,12 +123,12 @@ const Login = () => {
 
         {selectedTorre && !isAdmin && (
           <label>
-            Apartamento:
+            Casa o apartamento:
             <select value={selectedApto} onChange={handleAptoChange}>
-              <option>Seleccione el apartamento</option>
-              {aptos.sort().map((apto) => (
+              <option>Seleccione la casa o el apartamento</option>
+              {aptos.sort((a, b) => a - b).map((apto) => (
                 <option key={apto} value={apto}>
-                  {apto}
+    {apto}
                 </option>
               ))}
             </select>
