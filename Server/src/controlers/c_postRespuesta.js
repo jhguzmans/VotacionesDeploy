@@ -55,7 +55,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
         const coefApod = await User.findOne({
           where: { conjTorreApto: apoderadoUserId },
           attributes: ["coef"],
-          raw: true,
+          raw: true, 
         });
     
         const coefValue = coefApod ? String(coefApod.coef) : null;
