@@ -48,7 +48,7 @@ const c_postRespuesta = async (preguntaId, opcionRespuestaId, userId, coef) => {
           console.warn("Apoderado con datos incompletos, se omite:", apoderado);
           continue;
         }
-        const apoderadoUserId = `La Finca MZ1-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
+        const apoderadoUserId = `Conjunto Residencial La Finca Super Manzana 1-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         //const apoderadoUserId = `EL RECODO DEL PARQUE P. H.-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         //const apoderadoUserId = `LA CASTELLANA PH-${apoderado.selectedTorre}-${apoderado.selectedApto}`;
         
