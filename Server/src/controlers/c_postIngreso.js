@@ -9,9 +9,9 @@ const c_postIngreso = async (data) => {
       if (apoderado.selectedTorre !== "") {
         const apoderadoDB = await User.findOne({
           where: {
-            conjTorreApto: `EL RECODO DEL PARQUE P. H.-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
+            conjTorreApto: `La Finca MZ1-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
+            //conjTorreApto: `EL RECODO DEL PARQUE P. H.-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
             //conjTorreApto: `La Castellana-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
-            
             //conjTorreApto: `Fiorento-${apoderado.selectedTorre}-${apoderado.selectedApto}`,
           },
         });
@@ -23,12 +23,14 @@ const c_postIngreso = async (data) => {
       }
     }
 console.log("Para buscar propietarioDB, lo busca con: ");
-console.log(`EL RECODO DEL PARQUE P. H.-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`);
+console.log(`La Finca MZ1-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`);
 
+//console.log(`EL RECODO DEL PARQUE P. H.-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`);
 
     const propietarioDB = await User.findOne({
       where: {
-        conjTorreApto: `EL RECODO DEL PARQUE P. H.-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        conjTorreApto: `La Finca MZ1-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        //conjTorreApto: `EL RECODO DEL PARQUE P. H.-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
         //conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
       },
     });
@@ -43,7 +45,8 @@ console.log("Lo que trae el propietario es: " , propietarioDB);
 
     const propietarioActualizado = await User.findOne({
       where: {
-        conjTorreApto: `EL RECODO DEL PARQUE P. H.-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        conjTorreApto: `La Finca MZ1-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
+        //conjTorreApto: `EL RECODO DEL PARQUE P. H.-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
         //conjTorreApto: `Fiorento-${data.propietario.selectedTorre}-${data.propietario.selectedApto}`,
       },
     });
