@@ -11,15 +11,15 @@ const Llegada = () => {
   const torres = useSelector((state) => state.torres);
   const aptos = useSelector((state) => state.aptos);
   const [apoderados, setApoderados] = useState([
-    { selectedTorre: 1, selectedApto: "" },
-    { selectedTorre: 1, selectedApto: "" },
-    //  { selectedTorre: "", selectedApto: "" },
-    //  { selectedTorre: "", selectedApto: "" },
+    //{ selectedTorre: 1, selectedApto: "" },
+    //{ selectedTorre: 1, selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
   ]); // Arreglo con 4 objetos vacíos
   const [poder, setPoder] = useState(false);
   const [propietario, setPropietario] = useState({
-    //selectedTorre: "",
-    selectedTorre: 1,
+    selectedTorre: "",
+    //selectedTorre: 1,
     selectedApto: "",
   });
 
@@ -103,10 +103,10 @@ const Llegada = () => {
     alert("Los datos se han registrado correctamente."); // Mostrar alerta al completar el envío
     setPropietario({ selectedTorre: "", selectedApto: "" });
     setApoderados([
-      { selectedTorre: "1", selectedApto: "" },
-      { selectedTorre: "1", selectedApto: "" },
-      // { selectedTorre: "", selectedApto: "" },
-      // { selectedTorre: "", selectedApto: "" },
+      //{ selectedTorre: "1", selectedApto: "" },
+      //{ selectedTorre: "1", selectedApto: "" },
+       { selectedTorre: "", selectedApto: "" },
+       { selectedTorre: "", selectedApto: "" },
     ]);
     setPoder(false);
   };
@@ -120,7 +120,7 @@ const Llegada = () => {
       <form onSubmit={handleSubmit} className={styles.form}>
         <label>Propietario: </label>
         <div className={styles.containerUsuario}>
-           {/* {
+           {
             <label>
               Torre:
               <select
@@ -138,8 +138,7 @@ const Llegada = () => {
                ))}
               </select>
             </label>
-          }  */}
-           {propietario.selectedTorre ? ( 
+          }             {propietario.selectedTorre ? ( 
         //{selectedTorre ? (
             <label>
               Casa:
@@ -189,7 +188,7 @@ const Llegada = () => {
             <div key={index}>
               <label>Apoderado {index + 1}: </label>
               <div className={styles.containerUsuario}>
-                 {/* <label>
+                  <label>
                   Torre:
                   <select
                     value={apoderado.selectedTorre || ""}
@@ -204,7 +203,7 @@ const Llegada = () => {
     </option>
   ))}
                   </select>
-                </label>  */}
+                </label>  
 
                 {apoderado.selectedTorre && (
                   <label>
