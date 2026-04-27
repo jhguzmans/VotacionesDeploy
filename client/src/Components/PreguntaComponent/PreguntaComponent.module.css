@@ -38,10 +38,13 @@ input {
   margin-right: 10px;
 }
 
+
 button {
-  background-color: #ffffff; /* Blanco */
-  /*color: #2196f3; /* Azul */
-  color: #35383a; /* Azul principal */
+  appearance: none;
+  -webkit-appearance: none;
+  
+  background-color: #ff6600; /* Naranja fijo */
+  color: #ffffff; /* Texto blanco */
   
   border: none;
   padding: 10px 20px;
