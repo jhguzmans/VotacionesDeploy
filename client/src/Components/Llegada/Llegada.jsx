@@ -27,7 +27,9 @@ const Llegada = () => {
     //dispatch(getTorres("La Castellana"));
     //dispatch(getTorres("Fiorento"));
     //dispatch(getTorres("EL RECODO DEL PARQUE P. H."));
-    dispatch(getTorres("Conjunto Residencial La Finca Super Manzana 1"));
+    //dispatch(getTorres("Conjunto Residencial La Finca Super Manzana 1"));
+    dispatch(getTorres("Romero"));
+    
 
     
   }, []);
