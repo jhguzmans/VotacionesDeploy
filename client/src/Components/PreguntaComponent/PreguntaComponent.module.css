@@ -77,3 +77,30 @@ button:focus-visible {
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
+.botonEnviar {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  background: #ff6600 !important;
+  background-color: #ff6600 !important;
+  color: #ffffff !important;
+
+  border: none !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+.botonEnviar:hover,
+.botonEnviar:focus,
+.botonEnviar:active,
+.botonEnviar:visited {
+  background: #ff6600 !important;
+  background-color: #ff6600 !important;
+  color: #ffffff !important;
+  outline: none;
+}

@@ -142,7 +142,7 @@ const PreguntaComponent = () => {
               {apoderados && apoderados[1] && apoderados[1].selectedApto &&(
                 <p>Torre: {apoderados[1].selectedTorre} Apartamento: {apoderados[1].selectedApto}</p>
               )}
-              <button onClick={handleEnviarRespuesta}>Enviar Respuesta</button>
+              <button onClick={handleEnviarRespuesta} className={styles.botonEnviar}>Enviar Respuesta</button>
             </ul>
           )}
         </>
