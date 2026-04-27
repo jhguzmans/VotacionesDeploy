@@ -42,19 +42,38 @@ input {
 button {
   appearance: none;
   -webkit-appearance: none;
-  
-  background-color: #ff6600; /* Naranja fijo */
-  color: #ffffff; /* Texto blanco */
-  
+
+  background-color: #ff6600;
+  color: #ffffff;
+
   border: none;
   padding: 10px 20px;
-  cursor: pointer;
   border-radius: 5px;
   font-size: 16px;
+  cursor: pointer;
 }
 
+/* Hover */
 button:hover {
- /* background-color: #1976d2; /* Azul más oscuro al pasar el mouse */
-  background-color: #161717; /* Azul principal */
-  color: #ffffff; /* Blanco */
+  background-color: #e65c00;
+  color: #ffffff;
+}
+
+/* Cuando se presiona */
+button:active {
+  background-color: #ff6600;
+  color: #ffffff;
+}
+
+/* Cuando queda seleccionado */
+button:focus,
+button:focus-visible {
+  background-color: #ff6600;
+  color: #ffffff;
+  outline: none;
+}
+
+/* Evita resaltado azul en móviles */
+button {
+  -webkit-tap-highlight-color: transparent;
 }
