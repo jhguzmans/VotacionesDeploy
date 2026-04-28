@@ -6,13 +6,16 @@ import { useNavigate } from "react-router-dom";
 
 const Llegada = () => {
   const dispatch = useDispatch();
-  //const [selectedTorre, setSelectedTorre] = useState("");
-  const selectedTorre = 1;
+  const [selectedTorre, setSelectedTorre] = useState("");
+  //const selectedTorre = 1;
   const torres = useSelector((state) => state.torres);
   const aptos = useSelector((state) => state.aptos);
   const [apoderados, setApoderados] = useState([
     //{ selectedTorre: 1, selectedApto: "" },
     //{ selectedTorre: 1, selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
+      { selectedTorre: "", selectedApto: "" },
       { selectedTorre: "", selectedApto: "" },
       { selectedTorre: "", selectedApto: "" },
   ]); // Arreglo con 4 objetos vacíos
@@ -227,6 +230,7 @@ const Llegada = () => {
               </div>
             </div>
           ))}
+          
         <button type="submit">Registrar</button>
       </form>
     </div>
