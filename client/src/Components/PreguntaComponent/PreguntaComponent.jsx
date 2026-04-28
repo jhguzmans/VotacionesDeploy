@@ -142,6 +142,16 @@ const PreguntaComponent = () => {
               {apoderados && apoderados[1] && apoderados[1].selectedApto &&(
                 <p>Torre: {apoderados[1].selectedTorre} Apartamento: {apoderados[1].selectedApto}</p>
               )}
+              {apoderados && apoderados[0] && apoderados[0].selectedApto &&(
+                <p>Torre: {apoderados[0].selectedTorre} Apartamento: {apoderados[2].selectedApto}</p>
+              )}
+              {apoderados && apoderados[1] && apoderados[1].selectedApto &&(
+                <p>Torre: {apoderados[1].selectedTorre} Apartamento: {apoderados[3].selectedApto}</p>
+              )}
+              {apoderados && apoderados[0] && apoderados[0].selectedApto &&(
+                <p>Torre: {apoderados[0].selectedTorre} Apartamento: {apoderados[4].selectedApto}</p>
+              )}
+
               <button onClick={handleEnviarRespuesta} className={styles.botonEnviar}>Enviar Respuesta</button>
             </ul>
           )}
